@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Materials from './components/Materials';
+import Footer from './components/Footer';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -27,11 +28,13 @@ function App() {
                 innerScale={0.5}
                 outerScale={0}
             />
+            <div id="Top"></div>
             <Hero theme={theme}/>
             <div className='Dummy'></div>
             <Header theme={theme} toggleTheme={toggleTheme}/>
             <Projects theme={theme}/>
             <Materials theme={theme}/>
+            <Footer theme={theme}/>
         </div>
     );
 }
