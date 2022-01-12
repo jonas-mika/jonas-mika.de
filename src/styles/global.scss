@@ -1,15 +1,12 @@
 * {
-    border-box: '';
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     font-family: 'Montserrat', 'sans-serif';
     cursor: None;
-    background: var(--background-primary);
+    // background-color: var(--background-primary);
     // transition: 1s ease-in-out;
-}
-
-.App {
-    min-height: 100vh;
 }
 
 .main-container {

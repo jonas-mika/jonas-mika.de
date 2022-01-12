@@ -1,9 +1,14 @@
 .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
     padding: 1rem 4rem;
-    background-color: var(--background-secondary);
+    background-color: var(--header);
+
 
     .main-container {
-        background-color: var(--background-secondary);
+        background-color: None;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -20,7 +25,8 @@
                 display: flex;
 
             p {
-                background-color: var(--background-secondary);
+                background-color: None;
+                /*background-color: var(--background-secondary);*/
                 font-size: 1.25rem;
             }
         }
@@ -29,8 +35,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-width: 500px;
-            background-color: var(--background-secondary);
+            min-width: 400px;
+            width: 40%;
+            /*background-color: var(--background-secondary);*/
+            background-color: None;
 
             a {
                 text-decoration: None;
@@ -46,8 +54,55 @@
             display: flex;
 
             * {
-                background: var(--background-secondary);
+                /*background: var(--background-secondary);*/
+                background-color: None;
             }
         }
     }
+}
+
+.Hero {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-primary);
+    z-index: -1;
+
+    .main-container {
+        position: relative;
+        top: 30%;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        :hover * {
+            color: var(--accent);
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .icon * {
+            width: 30px;
+            height: 30px;
+            color: var(--text-primary);
+        }
+    }
+}
+
+.Dummy {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Projects {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-primary);
 }
