@@ -1,6 +1,6 @@
 // import { useState, useEffect } from 'react';
 import { DarkModeToggle } from "react-dark-mode-toggle-2";
-
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Header = ( {theme, toggleTheme} ) => {
     return (
@@ -15,18 +15,18 @@ const Header = ( {theme, toggleTheme} ) => {
                 </div>
 
                 <div className="menu no-select">
-                    <a className="link italic-hover" href="https://www.github.com/jonas-mika">
+                    <AnchorLink className="link italic-hover" href="#Projects">
                         <p className="regular secondary">projects</p>
-                    </a>
-                    <a className="link italic-hover" href="https://www.github.com/jonas-mika">
+                    </AnchorLink>
+                    <AnchorLink className="link italic-hover" href="#Materials">
                         <p className="regular secondary">material</p>
-                    </a>
-                    <a className="link italic-hover" href="https://www.github.com/jonas-mika">
+                    </AnchorLink>
+                    <a className="link italic-hover" href="/assets/general/resume.pdf" target="_blank" download="resume">
                         <p className="regular secondary">resume</p>
                     </a>
-                    <a className="link italic-hover" href="https://www.github.com/jonas-mika">
+                    <AnchorLink className="link italic-hover" href="#Footer">
                         <p className="regular secondary">contact</p>
-                    </a>
+                    </AnchorLink>
 
                     <div className="toggle">
                         <DarkModeToggle 

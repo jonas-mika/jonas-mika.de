@@ -1,11 +1,13 @@
 // import { useState, useEffect } from 'react';
 import AnimatedCursor from "react-animated-cursor"; // custom cursor
 import useLocalStorage from 'use-local-storage'; // store information about colorscheme
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import './styles/index.scss';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import Materials from './components/Materials';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -29,6 +31,7 @@ function App() {
             <div className='Dummy'></div>
             <Header theme={theme} toggleTheme={toggleTheme}/>
             <Projects theme={theme}/>
+            <Materials theme={theme}/>
         </div>
     );
 }

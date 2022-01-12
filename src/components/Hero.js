@@ -131,7 +131,7 @@ function AnimationCanvas({ theme }) {
 
 const Hero = ({ theme } ) => {
   return (
-    <div className="Hero">
+    <div id="Hero" className="Hero">
       <div className="main-container">
         <h2 className="header bold no-select secondary">data is driving the world</h2>
         <div className="icon">
