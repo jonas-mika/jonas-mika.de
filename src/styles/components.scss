@@ -1,0 +1,53 @@
+.navbar {
+    padding: 1rem 4rem;
+    background-color: var(--background-secondary);
+
+    .main-container {
+        background-color: var(--background-secondary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        padding: 1rem 0;
+
+        .logo 
+            :hover .change-color { 
+                color: var(--accent);
+            }
+
+            a {
+                font-size: 20px;
+                display: flex;
+
+            p {
+                background-color: var(--background-secondary);
+                font-size: 1.25rem;
+            }
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 500px;
+            background-color: var(--background-secondary);
+
+            a {
+                text-decoration: None;
+                font-weight: 400;
+
+                p {
+                    font-size: 1.05rem;
+                }
+            }
+        }
+
+        .toggle {
+            display: flex;
+
+            * {
+                background: var(--background-secondary);
+            }
+        }
+    }
+}

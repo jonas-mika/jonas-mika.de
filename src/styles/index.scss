@@ -1,0 +1,30 @@
+// global colors
+:root {
+    --background-primary: #ffffff;
+    --background-secondary: #ffffff;
+
+    --text-primary: #000000;
+    --text-secondary: #5F5F5F;
+    --text-tertiary: #DFDFDF;
+
+    --accent: #870000;
+}
+
+[data-theme='dark'] {
+    --background-primary: black;
+    --background-secondary: #171717;
+
+    --text-primary: #ffffff;
+    --text-secondary: #DFDFDF;
+    --text-tertiary: #DFDFDF;
+
+    --accent: #08b404;
+}
+
+@import "fonts";
+
+// npm imports
+@import "react-toggle";
+
+@import "global";
+@import "components";

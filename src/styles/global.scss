@@ -1,0 +1,65 @@
+* {
+    border-box: '';
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'sans-serif';
+    cursor: None;
+    background: var(--background-primary);
+    // transition: 1s ease-in-out;
+}
+
+.App {
+    min-height: 100vh;
+}
+
+.main-container {
+    max-width: 1520px;
+    min-width: 720px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently */
+}
+
+.primary {
+    color: var(--text-primary);
+}
+
+.secondary {
+    color: var(--text-secondary);
+}
+
+.regular {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.bold {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.italic-hover {
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition:  0.3s;
+
+    :hover {
+        -webkit-transform: skewX(-15deg);
+        -moz-transform: skewX(-15deg);
+        -o-transform: skewX(-15deg);
+        transform: skewX(-15deg);
+    }
+}
