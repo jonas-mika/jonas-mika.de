@@ -3,7 +3,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 
 const Footer = ({ theme }) => {
     return (
-        <div className="Footer">
+        <div id="Footer" className="Footer">
             <div className="main-container">
                 <div className="left">
                     <p className="bold primary" style={{fontSize: '1rem', marginBottom: '.2rem'}}>Jonas-Mika Senghaas</p>

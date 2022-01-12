@@ -133,7 +133,8 @@ const Hero = ({ theme } ) => {
   return (
     <div id="Hero" className="Hero">
       <div className="main-container">
-        <h2 className="header bold no-select secondary">data is driving the world</h2>
+        <h2 className="header bold no-select primary">i help you understand the world using data</h2>
+        <p className="header regular italic no-select secondary">hej, my name is jonas-mika. i code cool stuff. have a look</p>
         <div className="icon">
             <MdArrowDropDown/>
         </div>

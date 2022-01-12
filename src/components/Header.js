@@ -4,28 +4,28 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Header = ( {theme, toggleTheme} ) => {
     return (
-        <div className="navbar" data-theme={theme}>
+        <div className="Navbar" data-theme={theme}>
             <div className="main-container">
                 <div className="logo no-select">
-                    <a>
+                    <AnchorLink href='#Top'>
                         <p className="bold change-color primary">jonas-</p>
                         <p className="bold change-color primary">mika</p>
                         <p className="regular italic primary" style={{paddingLeft: '3px'}}>senghaas</p>
-                    </a>
+                    </AnchorLink>
                 </div>
 
                 <div className="menu no-select">
-                    <AnchorLink className="link italic-hover" href="#Projects">
-                        <p className="regular secondary">projects</p>
+                    <AnchorLink className="link italic-hover" href="#Projects" offset='150'>
+                        <p className="regular primary">projects</p>
                     </AnchorLink>
-                    <AnchorLink className="link italic-hover" href="#Materials">
-                        <p className="regular secondary">material</p>
+                    <AnchorLink className="link italic-hover" href="#Materials" offset='150'>
+                        <p className="regular primary">material</p>
                     </AnchorLink>
                     <a className="link italic-hover" href="/assets/general/resume.pdf" target="_blank" download="resume">
-                        <p className="regular secondary">resume</p>
+                        <p className="regular primary">resume</p>
                     </a>
                     <AnchorLink className="link italic-hover" href="#Footer">
-                        <p className="regular secondary">contact</p>
+                        <p className="regular primary">contact</p>
                     </AnchorLink>
 
                     <div className="toggle">
