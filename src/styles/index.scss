@@ -3,20 +3,20 @@
     --background-primary: #ffffff;
     --background-secondary: #ffffff;
 
-    --header: rgba(255, 255, 255, 0.5);
+    --header: rgba(255, 255, 255, 0.85);
 
     --text-primary: #000000;
     --text-secondary: #5F5F5F;
     --text-tertiary: #DFDFDF;
 
-    --accent: #00AAFF;
+    --accent: #0300ab;
 }
 
 [data-theme='dark'] {
     --background-primary: black;
     --background-secondary: #171717;
 
-    --header: rgba(0, 0, 0, 0.5);
+    --header: rgba(0, 0, 0, 0.85);
 
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
