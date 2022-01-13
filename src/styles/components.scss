@@ -173,11 +173,8 @@
 }
 
 .Footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
     height: 200px;
-    padding: 0 4rem;
     background-color: var(--background-primary);
 
 
@@ -212,4 +209,7 @@
 }
 
 .Course {
+    .main-container {
+        padding-top: 250px;
+    }
 }
