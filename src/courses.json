@@ -1,0 +1,22 @@
+[
+        {
+            "name": "intro-programming",
+            "lecturer": ["michael szell", "bodil biering"],
+            "semester": "fall 2021"
+        }, 
+        {   
+            "name": "applied-stats", 
+            "lecturer": ["semi brandt"],
+            "semester": "spring 2022"
+        }, 
+        {
+            "name": "algorithms-and-data-structures",
+            "lecturer": ["riko jakob", "thore husfeldt"],
+            "semester": "spring 2022"
+        },
+        {
+            "name": "study-lab",
+            "lecturer": [],
+            "semester": "spring 2022"
+        }
+]

@@ -9,11 +9,44 @@
     // transition: 1s ease-in-out;
 }
 
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+   padding-bottom: 200px;
+}
+
 .main-container {
     max-width: 1520px;
     min-width: 720px;
     margin: 0 auto;
-    padding: 0 4rem;
+}
+
+.section {
+    position: relative;
+    background-color: var(--background-primary);
+    padding: 10rem 0;
+}
+
+.section-title {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.sub-section-title {
+    font-size: 2.5rem;
+    margin: 0.2rem 0;
+}
+
+.sub-section-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    color: var(--text-secondary);
 }
 
 .no-select {
@@ -37,6 +70,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+
+.baseline {
+    align-items: baseline;
 }
 
 .primary {
