@@ -1,13 +1,18 @@
 // import { useState, useEffect } from 'react';
 import AnimatedCursor from "react-animated-cursor"; // custom cursor
 import useLocalStorage from 'use-local-storage'; // store information about colorscheme
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './styles/index.scss';
 
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Materials from './components/Materials';
+import Home from './components/Home';
+import Course from './components/Course';
 import Footer from './components/Footer';
 
 function App() {
@@ -18,24 +23,33 @@ function App() {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     }
 
+    const courses = require('./courses.json');
+
     return (
-        <div className="App" data-theme={theme}>
-            <AnimatedCursor 
-                innerSize={10}
-                outerSize={10}
-                color={'0, 170, 255'}
-                outerAlpha={0.1}
-                innerScale={0.5}
-                outerScale={0}
-            />
-            <div id="Top"></div>
-            <Hero theme={theme}/>
-            <div className='Dummy'></div>
-            <Header theme={theme} toggleTheme={toggleTheme}/>
-            <Projects theme={theme}/>
-            <Materials theme={theme}/>
-            <Footer theme={theme}/>
-        </div>
+        <Router>
+            <div className="App page-container" data-theme={theme}>
+                <div className="content-wrap">
+                    <AnimatedCursor 
+                        innerSize={10}
+                        outerSize={10}
+                        color={'0, 170, 255'}
+                        outerAlpha={0.1}
+                        innerScale={0.5}
+                        outerScale={0}
+                    />
+                    <div id="Top"></div>
+                    <Header theme={theme} toggleTheme={toggleTheme}/>
+
+                    <Routes>
+                        <Route path='/' element={<Home courses={courses} theme={theme}/>}/>
+                        {courses.map((course, i) => {
+                            return <Route path={`/${course.name}`} element={<Course name={course.name} lecturer={course.lecturer[0]} semester={course.semester}/>}/>
+                        })}
+                    </Routes>
+                </div>
+                <Footer/>
+            </div>
+        </Router>
     );
 }
 
