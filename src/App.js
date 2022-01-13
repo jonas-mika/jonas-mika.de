@@ -28,25 +28,23 @@ function App() {
     return (
         <Router>
             <div className="App page-container" data-theme={theme}>
-                <div className="content-wrap">
-                    <AnimatedCursor 
-                        innerSize={10}
-                        outerSize={10}
-                        color={'0, 170, 255'}
-                        outerAlpha={0.1}
-                        innerScale={0.5}
-                        outerScale={0}
-                    />
-                    <div id="Top"></div>
-                    <Header theme={theme} toggleTheme={toggleTheme}/>
+                <AnimatedCursor 
+                    innerSize={10}
+                    outerSize={10}
+                    color={'0, 170, 255'}
+                    outerAlpha={0.1}
+                    innerScale={0.5}
+                    outerScale={0}
+                />
 
-                    <Routes>
-                        <Route path='/' element={<Home courses={courses} theme={theme}/>}/>
-                        {courses.map((course, i) => {
-                            return <Route path={`/${course.name}`} element={<Course name={course.name} lecturer={course.lecturer[0]} semester={course.semester}/>}/>
-                        })}
-                    </Routes>
-                </div>
+                <Header theme={theme} toggleTheme={toggleTheme}/>
+
+                <Routes>
+                    <Route path='/' element={<Home courses={courses} theme={theme}/>}/>
+                    {courses.map((course, i) => {
+                        return <Route path={`/${course.name}`} element={<Course name={course.name} lecturers={course.lecturer} semester={course.semester}/>}/>
+                    })}
+                </Routes>
                 <Footer/>
             </div>
         </Router>
