@@ -17,16 +17,16 @@ const Header = ( {theme, toggleTheme} ) => {
 
                 <div className="menu no-select">
                     <AnchorLink className="link italic-hover" href="#Projects" offset='150'>
-                        <p className="regular primary">projects</p>
+                        <p className="regular primary italic-hover">projects</p>
                     </AnchorLink>
                     <AnchorLink className="link italic-hover" href="#Materials" offset='150'>
-                        <p className="regular primary">material</p>
+                        <p className="regular primary italic-hover">material</p>
                     </AnchorLink>
                     <a className="link italic-hover" href="/assets/general/resume.pdf" target="_blank" download="resume">
-                        <p className="regular primary">resume</p>
+                        <p className="regular primary italic-hover">resume</p>
                     </a>
                     <AnchorLink className="link italic-hover" href="#Footer">
-                        <p className="regular primary">contact</p>
+                        <p className="regular primary italic-hover">contact</p>
                     </AnchorLink>
 
                     <div className="toggle">

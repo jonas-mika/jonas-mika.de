@@ -8,9 +8,9 @@ const Footer = ({ theme }) => {
                 <div className="left">
                     <p className="bold primary" style={{fontSize: '1rem', marginBottom: '.2rem'}}>Jonas-Mika Senghaas</p>
                     <p className="regular secondary" style={{marginBottom: '1.5rem'}}>2300 København</p>
-                    <a className="italic-hover" href="mailto:mail@jonassenghaas.de"><p className="regular secondary">mail@jonassenghaas.de</p></a>
+                    <a className="italic-hover" href="mailto:mail@jonassenghaas.de"><p className="regular secondary italic-hover">mail@jonassenghaas.de</p></a>
                     <a className="italic-hover" href="/assets/general/resume.pdf" target="_blank" download="resume">
-                        <p className="regular secondary">download resume</p>
+                        <p className="regular secondary italic-hover">download resume</p>
                     </a>
                     <p className="italic secondary" style={{fontSize:'0.7rem', marginTop: '1.5rem'}} >&copy; 2022 Jonas-Mika Senghaas</p>
                 </div>
