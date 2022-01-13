@@ -13,12 +13,19 @@
     min-height: 100vh;
     display: flex; 
     flex-direction: column;
+    background-color: var(--background-primary);
 }
 
 .main-container {
     max-width: 1520px;
     min-width: 720px;
     margin: 0 auto;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-primary);
 }
 
 .section {
@@ -37,12 +44,13 @@
 
 .sub-section-title {
     font-size: 2.5rem;
-    margin: 0.2rem 0;
+    margin: 0.3rem 0;
 }
 
 .sub-section-text {
     font-size: 0.8rem;
     letter-spacing: 0.05rem;
+    margin: 0 0.2rem;
     color: var(--text-secondary);
 }
 
@@ -91,6 +99,11 @@
     font-size: 1.2rem;
 }
 
+.small {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
 .bold {
     font-weight: 700;
     font-size: 1.2rem;
@@ -101,15 +114,10 @@
 }
 
 .italic-hover {
-    -moz-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition:  all 0.3s;
+    transition: all 0.2s ease-in;
+    z-index: 10;
 
     :hover {
-        -webkit-transform: skewX(-10deg);
-        -moz-transform: skewX(-10deg);
-        -o-transform: skewX(-10deg);
         transform: skewX(-10deg);
     }
 }
