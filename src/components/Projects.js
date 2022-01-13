@@ -43,13 +43,13 @@ const Projects = ({ theme }) => {
     }, [fetched]);
 
     return (
-        <div id="Projects" className="Projects">
+        <div id="Projects" className="Projects section">
             <div className="main-container">
-                <h1 className="title bold primary">projects</h1>
+                <h1 className="section-title">projects</h1>
                 <div>
                     {repos && topics.map(topic => {
                         return (
-                            <div id={topic} className="section">
+                            <div id={topic} className="sub-section">
                                 <h2 className="subheader secondary italic regular">{topic}</h2>
                                 {repos.map((repo, i) => {
                                     if (repo.topics.includes(topic)) {

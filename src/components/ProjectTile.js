@@ -42,25 +42,25 @@ const ProjectTile = ({ theme, name, updated_at, created_at, languages, topics, d
 
     return (
         <div className="ProjectTile flex-column">
-            <div className="container flex-row">
+            <div className="container flex-row baseline">
                 <a className="italic-hover" href={url} target="_blank">
-                    <h1 className="project-title primary italic-hover">{name}</h1>
+                    <h1 className="sub-section-title italic-hover">{name}</h1>
                 </a>
 
-                <div className="metadata flex-row">
+                <div className="metadata flex-row baseline">
                     <div className="languages flex-row">
                     {langs && langs.map((lang, i) => {
-                        return (<div key={i} className="metadata-item lang-icon">
+                        return (<div key={i} className="sub-section-text lang-icon">
                                    {langIcon(lang)}
                                </div>)
                     })}
                     </div>
 
-                    <div className="metadata-item"><h2 className="bold primary">{created_at}</h2></div>
+                    <div className="metadata-item"><h2 className="sub-section-text">{created_at}</h2></div>
 
                     <div className="topics flex-row">
                         {topics.map((topic, i) => {
-                            return <div key={i} className="topic metadata-item"><h2 key={i} className="bold primary">/ {topic}</h2></div>
+                            return <div key={i} className="topic"><h2 key={i} className="sub-section-text">/ {topic}</h2></div>
                         })}
                     </div>
                 </div>
