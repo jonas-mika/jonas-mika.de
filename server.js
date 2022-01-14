@@ -21,8 +21,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 // general 
-/*
-fs.readdir('/content', { withFileTypes : true}, (err, files) => {
+fs.readdir(`${public}/content`, { withFileTypes : true}, (err, files) => {
     if (err)
         console.log(err);
     else {
@@ -30,19 +29,20 @@ fs.readdir('/content', { withFileTypes : true}, (err, files) => {
             .filter(file => file.isDirectory())
             .map(dir => dir.name);
 
-        app.get('/courses', function(req, res) {
+        app.get('/api/courses', function(req, res) {
             res.json(dirs);
         });
 
         dirs.forEach(dir => {
-            fs.readdir(`${__dirname}/content/${dir}`, (err, files) => {
+            fs.readdir(`${public}/content/${dir}`, (err, files) => {
                 if (err) 
                     console.log(err);
                 else {
-                    app.get(`/courses/${dir}`, function(req, res) {
+                    app.get(`/api/courses/${dir}`, function(req, res) {
                         res.json(files);
                     });
 
+                    /*
                     files.forEach(file => {
                         const filename = `${__dirname}/content/${dir}/${file}`
                         const route = `${__dirname}/courses/${dir}/${file}`
@@ -53,12 +53,12 @@ fs.readdir('/content', { withFileTypes : true}, (err, files) => {
                             res.download(f); // Set disposition and send it.
                         });
                     })
+                    */
                 }
             })
         })
     }
 })
-*/
 
 fs.readdir(`${public}/share`, (err, files) => {
     if (err)
