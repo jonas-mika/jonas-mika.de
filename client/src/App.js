@@ -1,6 +1,7 @@
 // import { useState, useEffect } from 'react';
 import AnimatedCursor from "react-animated-cursor"; // custom cursor
 import useLocalStorage from 'use-local-storage'; // store information about colorscheme
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -30,19 +31,6 @@ function App() {
 
     const courses = require('./courses.json');
 
-    const callApi = async () => {
-        const response = await fetch('/api/share');
-        const body = await response.json();
-        console.log(body);
-        if (response.status !== 200) throw Error(body.message);
-        
-        return body;
-    };
-
-    useEffect(() => {
-        console.log(callApi());
-    }, []);
-
     return (
         <Router>
             <div className="App page-container" data-theme={theme}>
@@ -59,11 +47,11 @@ function App() {
                 <Header theme={theme} toggleTheme={toggleTheme}/>
 
                 <Routes>
-                    <Route exact path='/' element={<Home courses={courses} theme={theme}/>}/>
+                    <Route path='/' element={<Home courses={courses} theme={theme}/>}/>
                     {courses.map((course, i) => {
-                        return <Route exact path={`/${course.name}`} element={<Course name={course.name} lecturers={course.lecturer} semester={course.semester}/>}/>
+                        return <Route path={`/${course.name}/*`} element={<Course name={course.name} lecturers={course.lecturer} semester={course.semester}/>}/>
                     })}
-                    <Route exact path='/share' element={<Share/>}/>
+                    <Route path='share' element={<Share/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>
                 <Footer/>
