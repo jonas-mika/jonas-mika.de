@@ -10,7 +10,7 @@ const Materials = ({ theme, courses }) => {
                     {courses.map((course, i) => {
                          return (
                              <div className="flex-row baseline">
-                                 <h2 className="semester sub-section-text">{course.semester}</h2>
+                                 <h2 className="semester sub-section-text">{course.semester} \</h2>
                                  <Link className="italic-hover" to={`/${course.name}`}>
                                     <h1 className="name sub-section-title">{course.name}</h1>
                                  </Link>

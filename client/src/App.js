@@ -10,6 +10,8 @@ import {
 
 import './styles/index.scss';
 
+import { useEffect } from 'react';
+
 import Background from './components/Background';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -27,6 +29,19 @@ function App() {
     }
 
     const courses = require('./courses.json');
+
+    const callApi = async () => {
+        const response = await fetch('/api/share');
+        const body = await response.json();
+        console.log(body);
+        if (response.status !== 200) throw Error(body.message);
+        
+        return body;
+    };
+
+    useEffect(() => {
+        console.log(callApi());
+    }, []);
 
     return (
         <Router>

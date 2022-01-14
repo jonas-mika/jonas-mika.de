@@ -27,6 +27,9 @@ const Header = ( {theme, toggleTheme} ) => {
                     <AnchorLink className="link italic-hover" href="#Footer">
                         <p className="regular primary italic-hover">contact</p>
                     </AnchorLink>
+                    <Link to='/share' className="link italic-hover">
+                        <p className="regular primary italic-hover">share</p>
+                    </Link>
 
                     <div className="toggle">
                         <DarkModeToggle 

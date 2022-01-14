@@ -2,6 +2,7 @@
 :root {
     --background-primary: #ffffff;
     --background-secondary: #ffffff;
+    --background-contrast: black;
 
     --header: rgba(255, 255, 255, 0.85);
 
@@ -15,6 +16,7 @@
 [data-theme='dark'] {
     --background-primary: black;
     --background-secondary: #171717;
+    --background-contrast: #ffffff;
 
     --header: rgba(0, 0, 0, 0.85);
 
