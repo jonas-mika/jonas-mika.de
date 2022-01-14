@@ -259,3 +259,24 @@
     background-color: var(--background-primary);
     z-index: 0;
 }
+
+.Resource {
+    .markdown-body {
+        background-color: var(--background-primary);
+        color: var(--text-primary);
+        margin-bottom: 8rem;
+        max-width: 1280px;
+        min-width: 500px;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-primary);
+        }
+
+        pre, table * { 
+            background-color: var(--background-secondary);
+            color: var(--text-primary);
+        }
+    }
+}
