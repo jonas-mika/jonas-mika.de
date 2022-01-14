@@ -1,11 +1,7 @@
 # TODO
 
 ## IDEAS
-- [ ]
-- [ ]
 
-### Ideas
-- Light-/ Darkmode
 
 ### Fonts
 - Source Code Pro
@@ -18,21 +14,18 @@
 ### Sections
 - **Home**
   - [ ] Small text about person
-  - [ ] link github repos (maybe chosen ones) to be displayed 
-  - [ ] link social and automatic download of resume
-    - [ ] github.com
-    - [ ] linkedin.com
+  - [x] link github repos (maybe chosen ones) to be displayed 
+  - [x] link social and automatic download of resume
+    - [x] github.com
+    - [x] linkedin.com
     - [ ] xing.com
     - [ ] twitter.com
-    - [ ] instagram
-    - [ ] resume
-    - [ ] email: contact@jonas-mika.de
-    - [ ] Tel? 
+    - [x] instagram
+    - [x] resume
+    - [x] email: contact@jonas-mika.de
 
-- **TA Material**
-  - [ ] section wise markdown pages
-        (have one folder in public with subdirectories that only 
-         .md files); each section is password protected
+- **Course Material**
+  - [x] section wise markdown pages
 
 - **Download**
   - [ ] single subpage that instantly downloads some file in 
@@ -49,3 +42,14 @@
 2. Code layout out in React (keep it simple and fast)
 3. deploy on Netlify with automatic deployment on git commit to master
 4. connect to own domain
+
+
+## Current TODOS
+
+- [ ] style course resources
+- [ ] loader symbol
+- [ ] favicon
+- [ ] fetch course information on refresh of course page
+- [ ] back button to home does not work as expected (jumps to projects section)
+
+- [ ] host express server and react app 
