@@ -4,9 +4,10 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import 'github-markdown-css';
 
-const Resource = ({ course }) => {
+const Resource = ({ course, setShowBackground }) => {
     const { resource } = useParams();
     const [data, setData] = useState(null);
+
 
     const fetchResource = () => {
         import(`${process.env.PUBLIC_URL}/public/content/${course}/${resource}`)
@@ -18,9 +19,10 @@ const Resource = ({ course }) => {
         })
         .catch(err => console.log(err));
     }
-
+    
     useEffect(() => {
         fetchResource();
+        setShowBackground(false);
     }, []);
 
     return (

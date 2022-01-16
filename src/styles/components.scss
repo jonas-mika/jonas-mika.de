@@ -140,7 +140,7 @@
     }
 }
 
-.Materials {
+.CourseMaterials {
     .main-container {
         align-items: flex-end;
 
@@ -170,8 +170,17 @@
             }
         }
 
-        .title {
+        .section-title {
             margin-top: 2rem;
+            margin-bottom: 0rem;
+        }
+
+        .resources {
+            margin-top: 3rem;
+
+            .sub-section-title {
+                font-size: 2rem;
+            }
         }
     }
 }

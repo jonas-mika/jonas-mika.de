@@ -16,7 +16,7 @@ const pad = (d) => {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
-const Course = ({ theme, name, lecturers, semester }) => {
+const Course = ({ theme, setShowBackground, name, lecturers, semester }) => {
     const [resources, setResources] = useState(null);
     const [isOverview, setIsOverview] = useState(true);
     const location = useLocation();
@@ -48,24 +48,28 @@ const Course = ({ theme, name, lecturers, semester }) => {
                 </a>
                 {isOverview &&
                     <div>
-                    <h1 className="title">{name}</h1> 
+                    <h1 className="section-title">{name}</h1> 
                     <div className="flex-row"> 
                         <p className="semester sub-section-text">/ {semester}</p>
                         {lecturers.length > 0 && lecturers.map((lecturer, i) => {
-                            return <p className="lecturer sub-section-text">/ {lecturer}</p>;
+                            return <p key={i} className="lecturer sub-section-text">/ {lecturer}</p>;
                         })}
                     </div>
-                    <div className="flex-column">
+                    <div className=" resources flex-column">
                         {resources && 
-                            resources.map((resource, id) => {
-                                return <Link to={resource}>{resource}</Link>
+                            resources.map((resource, i) => {
+                                return (<div key={i} className="flex-row baseline">
+                                            <Link className="italic-hover" to={resource}>
+                                                <h1 className="name sub-section-title">/ {resource}</h1>
+                                            </Link>
+                                        </div>)
                             })
                         }
                     </div></div>
                 }
 
                 <Routes>
-                    <Route path=':resource' element={<Resource course={name}/>}/>
+                    <Route path=':resource' element={<Resource course={name} setShowBackground={setShowBackground}/>}/>
                 </Routes>
             </div>
         </div>

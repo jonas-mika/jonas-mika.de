@@ -16,10 +16,6 @@ const Projects = ({ theme }) => {
         const res = await axios.get(api);
         const data = res.data;
 
-        /*
-        data = data.sort((a, b) => a.topics.slice(0) === b.topics.slice(0) || 
-            Date.parse(b.updated_at) - Date.parse(a.updated_at));
-            */
         setRepos(data);
         setFetched(true);
     }
@@ -50,21 +46,23 @@ const Projects = ({ theme }) => {
                     {repos && topics.map(topic => {
                         return (
                             <div id={topic} className="sub-section">
-                                <h2 className="subheader secondary italic regular">{topic}</h2>
-                                {repos.map((repo, i) => {
-                                    if (repo.topics.includes(topic)) {
-                                        return <ProjectTile
-                                            key={i}
-                                            name={repo.name}
-                                            updated_at={repo.updated_at.slice(0, 4)}
-                                            created_at={repo.created_at.slice(0, 4)}
-                                            languages={fetchLanguages(repo)}
-                                            topics={repo.topics.filter(x => x != topic).slice(0, 3)}
-                                            desc={repo.description}
-                                            url={`https://github.com/jonas-mika/${repo.name}`}
-                                           />
-                                    }
-                                })}
+                            <h2 className="subheader secondary italic regular">{topic}</h2>
+                            {repos.map((repo, i) => {
+                                if (repo.topics.includes(topic)) {
+                                    return <ProjectTile
+                                        key={i}
+                                        name={repo.name}
+                                        updated_at={repo.updated_at.slice(0, 4)}
+                                        created_at={repo.created_at.slice(0, 4)}
+                                        languages={fetchLanguages(repo)}
+                                        topics={repo.topics.filter(x => x !== topic).slice(0, 3)}
+                                        desc={repo.description}
+                                        url={`https://github.com/jonas-mika/${repo.name}`}
+                                       />
+                                } else {
+                                    return null;
+                                }
+                            })}
                             </div>
                         )})
                     }

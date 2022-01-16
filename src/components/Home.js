@@ -1,14 +1,14 @@
 import Hero from './Hero';
 import Projects from './Projects';
-import Materials from './Materials';
+import CourseMaterials from './CourseMaterials';
 
-const Home = ({ theme, courses }) => {
+const Home = ({ theme, courses}) => {
     return (
         <div id="Home" className="Home">
             <div className='Dummy'></div>
             <Hero theme={theme}/>
             <Projects theme={theme}/>
-            <Materials theme={theme} courses={courses}/>
+            <CourseMaterials theme={theme} courses={courses}/>
         </div>
     );
 }

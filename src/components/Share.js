@@ -7,7 +7,6 @@ const Share = () => {
     const callApi = async (api) => {
         const response = await fetch(api);
         const body = await response.json();
-        console.log(body);
         if (response.status !== 200) throw Error(body.message);
         
         setShares(body);
