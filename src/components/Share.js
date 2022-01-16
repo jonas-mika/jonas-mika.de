@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom';
 const Share = () => {
     const [shares, setShares] = useState(null);
 
-    const callApi = async (api) => {
-        const response = await fetch(api);
-        const body = await response.json();
-        if (response.status !== 200) throw Error(body.message);
-        
-        setShares(body);
-    };
+    const testheroku = async () => {
+        fetch('https://jonas-mika.herokuapp.com/')
+            .then(res => res.json())
+            .then(res => console.log(res));
+    }
+
+    const fetchApi = async (route) => {
+        fetch(route)
+            .then(res => res.json())
+            .then(data => setShares(data));
+    }
 
     useEffect(() => {
+        testheroku();
         if (!shares) {
-            callApi('api/share');
+            fetchApi('api/share');
         }
     }, []);
 

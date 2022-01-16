@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Resource from './Resource';
 import Background from './Background';
@@ -22,12 +23,10 @@ const Course = ({ theme, setShowBackground, name, lecturers, semester }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const callApi = async (api) => {
-        const response = await fetch(api);
-        const body = await response.json();
-        if (response.status !== 200) throw Error(body.message);
-        
-        setResources(body);
+    const fetchApi = async (route) => {
+        fetch(route)
+            .then(res => res.json())
+            .then(data => setResources(data));
     };
 
     useEffect(() => {
@@ -36,7 +35,7 @@ const Course = ({ theme, setShowBackground, name, lecturers, semester }) => {
 
     useEffect(() => {
         if (!resources) {
-            callApi(`api/courses/${name}`);
+            fetchApi(`api/courses/${name}`);
         }
     }, []);
 
