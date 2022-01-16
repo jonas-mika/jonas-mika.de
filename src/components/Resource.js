@@ -9,6 +9,7 @@ const Resource = ({ course, setShowBackground }) => {
     const [data, setData] = useState(null);
 
 
+    /*
     const fetchResource = () => {
         import(`${process.env.PUBLIC_URL}/public/content/${course}/${resource}`)
         .then(res => {
@@ -24,6 +25,7 @@ const Resource = ({ course, setShowBackground }) => {
         fetchResource();
         setShowBackground(false);
     }, []);
+    */
 
     return (
         <div id="Resource" className="Resource">

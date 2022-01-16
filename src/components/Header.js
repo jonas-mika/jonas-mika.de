@@ -18,8 +18,8 @@ const Header = ( {theme, toggleTheme} ) => {
                     <AnchorLink className="link italic-hover" href="#Projects">
                         <p className="regular primary italic-hover">projects</p>
                     </AnchorLink>
-                    <AnchorLink className="link italic-hover" href="#Materials">
-                        <p className="regular primary italic-hover">material</p>
+                    <AnchorLink className="link italic-hover" href="#CourseMaterials">
+                        <p className="regular primary italic-hover">course materials</p>
                     </AnchorLink>
                     <a className="link italic-hover" href="/assets/general/resume.pdf" target="_blank" download="resume">
                         <p className="regular primary italic-hover">resume</p>
