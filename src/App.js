@@ -78,7 +78,7 @@ function App() {
                                 <Route path='share' element={<Share/>}/>
                                 <Route path='*' element={<NotFound/>}/>
                         </Routes>
-                    : <Loader theme={theme}/>
+                    : <Loader theme={theme} fullPage={true}/>
                 }
                 <Footer/>
             </div>
