@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import 'github-markdown-css';
 
-import Loader from './Loader';
+import Subpage from './Subpage';
 
 const FILETYPES = {
         "md": "markdown",
@@ -49,7 +49,7 @@ const Resource = ({ course }) => {
                 "data": await data,
                 "filetype": filetype
             });
-        }, 1000);
+        }, 0);
         return () => clearTimeout(timer);
     }, [course, resource]);
 
@@ -57,11 +57,14 @@ const Resource = ({ course }) => {
     const render = () => {
         if (state.fetched) {
             if (state.filetype === 'markdown' || state.filetype === 'txt') {
-                return <ReactMarkdown 
+                return (
+                    <div className="markdown-body" style={{marginTop: '3rem'}}>
+                    <ReactMarkdown 
                          children={state.data} 
                          remarkPlugins={[remarkGfm]}
                          skipHtml={true}
-                        />
+                    />
+                    </div>)
             } else {   
                 return (<CopyBlock 
                     text={state.data}
@@ -71,16 +74,18 @@ const Resource = ({ course }) => {
                     wrapLines
                 />)
             }
-        } else {
-            return <Loader /> 
+        }  else {
+           return  <div className="primary">Loading...</div>
         }
     }
 
     return (
         <div id="Resource" className="Resource">
-            <div className="markdown-body" style={{marginTop: '3rem'}}>
-                {render()}
-            </div>
+            <Subpage
+                title={resource}
+                subtitle={""}
+            />
+            {render()}
         </div>)
 }
 

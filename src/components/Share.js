@@ -1,40 +1,49 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import Subpage from './Subpage';
 
 const Share = () => {
-    const [shares, setShares] = useState(null);
-
-    const fetchApi = async (route) => {
-        fetch(`https://jonas-mika.herokuapp.com/${route}`)
-            .then(res => res.json())
-            .then(data => setShares(data));
-    }
+    const navigate = useNavigate();
+    const [state, setState] = useState({
+        "fetched": false,
+        "data": null
+    });
 
     useEffect(() => {
-        if (!shares) {
-            fetchApi('api/share');
+        if (!state.data) {
+            const data = fetch(`https://jonas-mika.herokuapp.com/api/share`)
+                        .then(res => res.json())
+                        .then(data => {return data});
+
+        const timer =  setTimeout(async () => { 
+            setState({
+                "fetched": true,
+                "data": await data,
+            });
+        }, 10);
+        return () => clearTimeout(timer);
         }
     }, []);
-
 
     return (
         <div id="Share" className="Share">
             <div className="main-container">
-                <Link className="back italic-hover" to='/'><h2 className="secondary small italic-hover">back</h2></Link> 
-                <h1 className="title">share</h1> 
-                <div className="flex-row"> 
-                    <p className="semester sub-section-text">/ temporary downloads</p>
-                </div>
-                <div className="container flex-row">
-                    <div className="flex-column">
-                        {shares &&
-                            shares.map((share, i) => {
-                                return (<a className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} target="_blank" download={share}>
-                                            <p className="sub-section-title bold">/ {share}</p>
-                                        </a>)
+                <Subpage 
+                    title={"share"} 
+                    subtitle={"/ temporary downloads"}
+                />
+
+                <div className="container flex-column">
+                    {state.data ? 
+                        state.data.map((share, i) => {
+                            return (<a className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} download={share}>
+                                        <p className="sub-section-title bold">/ {share}</p>
+                                    </a>)
                             })
-                        }
-                    </div>
+                            :
+                        <div className="primary">Loading...</div>
+                    }
                 </div>
             </div>
         </div>

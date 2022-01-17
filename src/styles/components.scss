@@ -4,8 +4,6 @@
     top: 0;
     z-index: 5;
     padding: 1rem 0;
-    //background-color: var(--header);
-    //backdrop-filter: blur(5px);
 
     .main-container {
         background-color: None;
@@ -160,53 +158,16 @@
     }
 }
 
-
-.Course {
-
-    .main-container {
-        z-index: 4;
-        padding-top: 200px;
-
-        .back {
-            h2 {
-                display: inline-block
-            }
-        }
-
-        .section-title {
-            margin-top: 2rem;
-            margin-bottom: 0rem;
-        }
-
-        .resources {
-            margin-top: 3rem;
-
-            .sub-section-title {
-                font-size: 2rem;
-            }
-        }
-    }
-}
-
-.Share {
+.Subpage {
+    margin-bottom: 3rem;
+    padding-top: 200px;
     z-index: 4;
-    .main-container {
-        padding-top: 200px;
 
-        .back {
-            h2 {
-                display: inline-block
-            }
-        }
-
-        .title {
-            margin-top: 2rem;
-        }
-
-        .container {
-            margin-top: 5rem;
-        }
+    .section-title {
+        margin-top: 2rem;
+        margin-bottom: 0;
     }
+
 }
 
 .NotFound {
@@ -284,7 +245,7 @@
         background-color: var(--background-primary);
         color: var(--text-primary);
         margin-bottom: 8rem;
-        max-width: 1280px;
+        max-width: 960px;
         min-width: 500px;
 
         h1 {
