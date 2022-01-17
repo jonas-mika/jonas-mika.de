@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react';
-import { DiPython, DiRust, DiJava, DiJavascript1, DiHtml5, DiVim, DiCss3 } from 'react-icons/di';
+import { DiPython, DiRust, DiJavascript1, DiHtml5, DiVim, DiCss3 } from 'react-icons/di';
 import { SiCplusplus, SiJupyter } from 'react-icons/si';
 import { VscTerminalPowershell } from 'react-icons/vsc';
 
 const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, topics, desc, url }) => {
     const [languages, setLanguages] = useState(null);
 
-    const fetchLanguage = async () => {
-        fetch(languages_url)
-        .then(res => res.json())
-        .then(res => setLanguages(Object.keys(res)))
-    }
 
     useEffect(() => {
+        const fetchLanguage = async () => {
+            fetch(languages_url)
+            .then(res => res.json())
+            .then(res => setLanguages(Object.keys(res)))
+        }
+
         fetchLanguage();
-    }, [])
+    }, [languages_url])
 
     const langIcon = (lang) => {
         if (lang === 'Python') {
@@ -41,7 +42,7 @@ const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, 
     return (
         <div className="ProjectTile flex-column" key={key}>
             <div className="container flex-row baseline">
-                <a className="italic-hover" href={url} target="_blank">
+                <a className="italic-hover" href={url} target="noopener">
                     <h1 className="sub-section-title italic-hover">{name}</h1>
                 </a>
 

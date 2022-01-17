@@ -31,7 +31,7 @@ const Resource = ({ course }) => {
         "filetype": null
     });
 
-    useEffect(async () => {
+    useEffect(() => {
         // fetching resource data
         const data = fetch(`https://jonas-mika.herokuapp.com/api/assets/courses/${course}/${resource}`)
                         .then(res => res.text())
@@ -40,7 +40,7 @@ const Resource = ({ course }) => {
 
 
         // getting filetype
-        const [name, suffix] = resource.split('.');
+        const suffix = resource.split('.')[1];
         const filetype = FILETYPES[suffix];
 
         const timer =  setTimeout(async () => { 
@@ -51,7 +51,7 @@ const Resource = ({ course }) => {
             });
         }, 1000);
         return () => clearTimeout(timer);
-    }, []);
+    }, [course, resource]);
 
 
     const render = () => {

@@ -21,7 +21,7 @@ const Header = ( {theme, toggleTheme} ) => {
                     <AnchorLink className="link italic-hover" href="#CourseMaterials">
                         <p className="regular primary italic-hover">course materials</p>
                     </AnchorLink>
-                    <a className="link italic-hover" href="/assets/general/resume.pdf" target="_blank" download="resume">
+                    <a className="link italic-hover" href="https://jonas-mika.herokuapp.com/api/assets/general/resume.pdf" target="noopener">
                         <p className="regular primary italic-hover">resume</p>
                     </a>
                     <AnchorLink className="link italic-hover" href="#Footer">

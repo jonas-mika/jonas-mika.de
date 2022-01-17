@@ -43,7 +43,7 @@ function App() {
 
         const timer =  setTimeout(() => { 
             setFetched(true);
-        }, 2000);
+        }, 1000);
         return () => clearTimeout(timer);
     }, []);
 
