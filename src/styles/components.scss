@@ -126,6 +126,12 @@
                 .lang-icon {
                     height: 2rem;
                     margin: 0.1rem;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+
+                    ::-webkit-scrollbar {
+                        display: None;
+                    }
 
                     * {
                         color: var(--text-secondary);
