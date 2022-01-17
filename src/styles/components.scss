@@ -141,6 +141,8 @@
 }
 
 .CourseMaterials {
+    z-index: 4;
+
     .main-container {
         align-items: flex-end;
 
@@ -160,8 +162,9 @@
 
 
 .Course {
-    z-index: 4;
+
     .main-container {
+        z-index: 4;
         padding-top: 200px;
 
         .back {

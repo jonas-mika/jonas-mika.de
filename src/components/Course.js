@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Resource from './Resource';
-import Background from './Background';
 
 import {
   Routes,
@@ -17,7 +16,7 @@ const pad = (d) => {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
-const Course = ({ theme, setShowBackground, name, lecturers, semester }) => {
+const Course = ({ theme, name, lecturers, semester }) => {
     const [resources, setResources] = useState(null);
     const [isOverview, setIsOverview] = useState(true);
     const location = useLocation();
@@ -68,7 +67,7 @@ const Course = ({ theme, setShowBackground, name, lecturers, semester }) => {
                 }
 
                 <Routes>
-                    <Route path=':resource' element={<Resource course={name} setShowBackground={setShowBackground}/>}/>
+                    <Route path=':resource' element={<Resource course={name}/>}/>
                 </Routes>
             </div>
         </div>

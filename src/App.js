@@ -10,7 +10,6 @@ import {
 
 import './styles/index.scss';
 
-import Background from './components/Background';
 import Header from './components/Header';
 import Home from './components/Home';
 import Course from './components/Course';
@@ -22,8 +21,6 @@ import Loader from './components/Loader';
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
-    // const [showBackground, setShowBackground] = useState(true);
-    // const [animateBackground, setAnimateBackground] = useState(true);
     const [projects, setProjects] = useState(null);
     const [fetched, setFetched] = useState(false);
 
@@ -44,7 +41,7 @@ function App() {
     useEffect(() => {
         fetchProjects();
 
-        const timer =  setTimeout(async () => { 
+        const timer =  setTimeout(() => { 
             setFetched(true);
         }, 2000);
         return () => clearTimeout(timer);
@@ -62,9 +59,7 @@ function App() {
                     outerScale={0}
                 />
 
-                <Background theme={theme} show={true} animate={true}/>
                 <Header theme={theme} toggleTheme={toggleTheme}/>
-
                 {fetched  ?
                         <Routes>
                             <Route path='/' element={

@@ -23,7 +23,7 @@ const FILETYPES = {
         
     }
 
-const Resource = ({ course, setShowBackground }) => {
+const Resource = ({ course }) => {
     const { resource } = useParams();
     const [state, setState] = useState({
         "fetched": false,
