@@ -24,7 +24,19 @@ function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
     const [showBackground, setShowBackground] = useState(true);
-    const [animateBackground, setAnimateBackground] = useState(false);
+    const [animateBackground, setAnimateBackground] = useState(true);
+    const [projects, setProjects] = useState(null);
+    const [languages, setLanguages] = useState([]);
+    const [fetched, setFetched] = useState(false);
+
+    const fetchProjects = async () => {
+        fetch("https://api.github.com/users/jonas-mika/repos")
+            .then(res => res.json())
+            .then(data => {
+                // try fetching languages here too
+                setProjects(data);
+            });
+    }
 
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -33,8 +45,8 @@ function App() {
     const courses = require('./courses.json');
 
     useEffect(() => {
-        setShowBackground(true);
-        setAnimateBackground(true);
+        fetchProjects();
+        setFetched(true);
     }, []);
 
     return (
@@ -52,9 +64,12 @@ function App() {
                 <Background theme={theme} show={showBackground} animate={animateBackground}/>
                 <Header theme={theme} toggleTheme={toggleTheme}/>
 
+                {fetched && 
                 <Routes>
                     <Route path='/' element={
                         <Home 
+                            projects={projects}
+                            languages={languages}
                             courses={courses} 
                             theme={theme}/>}
                         />
@@ -69,6 +84,7 @@ function App() {
                     <Route path='share' element={<Share/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>
+                }
                 <Footer/>
             </div>
         </Router>

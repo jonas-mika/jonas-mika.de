@@ -4,19 +4,18 @@ import { SiCplusplus, SiJupyter } from 'react-icons/si';
 import { VscTerminalPowershell } from 'react-icons/vsc';
 
 
-const ProjectTile = ({ theme, name, updated_at, created_at, languages, topics, desc, url }) => {
-    const [langs, setLangs] = useState(null);
+const ProjectTile = ({ theme, name, updated_at, created_at, languages_url, topics, desc, url }) => {
+    const [languages, setLanguages] = useState(null);
 
-    const getLangs = () => {
-        languages.then((a) => {
-            setLangs(a);
-      });
-    };
+    const fetchLanguage = async () => {
+        fetch(languages_url)
+        .then(res => res.json())
+        .then(res => setLanguages(Object.keys(res)))
+    }
 
     useEffect(() => {
-        getLangs();
-    }, [languages])
-
+        fetchLanguage();
+    }, [])
 
     const langIcon = (lang) => {
         if (lang === 'Python') {
@@ -49,7 +48,7 @@ const ProjectTile = ({ theme, name, updated_at, created_at, languages, topics, d
 
                 <div className="metadata flex-row baseline">
                     <div className="languages flex-row">
-                    {langs && langs.map((lang, i) => {
+                    {languages && languages.map((lang, i) => {
                         return (<div key={i} className="sub-section-text lang-icon">
                                    {langIcon(lang)}
                                </div>)
