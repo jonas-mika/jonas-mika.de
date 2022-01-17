@@ -64,3 +64,4 @@
 - [ ] mobile
 - [x] host express server and react app 
 - [ ] host website on jonas-mika.de
+- [ ] fix scrolling of language icons in Projects.js

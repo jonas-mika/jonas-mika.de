@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { DiPython, DiRust, DiJavascript1, DiHtml5, DiVim, DiCss3 } from 'react-icons/di';
 import { SiCplusplus, SiJupyter } from 'react-icons/si';
 import { VscTerminalPowershell } from 'react-icons/vsc';
+import useMobileDetect from 'use-mobile-detect-hook';
 
 const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, topics, desc, url }) => {
+    const isMobile = useMobileDetect();
     const [languages, setLanguages] = useState(null);
 
 
@@ -46,6 +48,7 @@ const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, 
                     <h1 className="sub-section-title italic-hover">{name}</h1>
                 </a>
 
+                {!isMobile.isMobile() &&
                 <div className="metadata flex-row baseline">
                     <div className="languages flex-row">
                     {languages && languages.map((lang, i) => {
@@ -63,6 +66,7 @@ const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, 
                         })}
                     </div>
                 </div>
+                }
             </div>
         </div>
     );
