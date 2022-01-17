@@ -48,22 +48,19 @@
 
 ## Current TODOS
 
-- [ ] option to hide and stop animation in background component; define toggle
+- [x] option to hide and stop animation in background component; define toggle
   function in App.js and pass through into components that use it
   -> deleted background from all but home page
 - [x] style course resources
 - [x] loader symbol
-- [ ] favicon
-- [ ] fetch course information on refresh of course page
+- [x] favicon
 - [x] back button to home does not work as expected (jumps to projects section)
 - [x] rename materials to course materials
 - [x] make backend continously read the public folder (such that updates are in
   webapp the second they are added to public)
 - [ ] refactor code of subpages into single component
-
 - [ ] color when highlighting in light mode markdown wrong (needs to be dark
   color)
-
 - [ ] mobile
-
 - [x] host express server and react app 
+- [ ] host website on jonas-mika.de
