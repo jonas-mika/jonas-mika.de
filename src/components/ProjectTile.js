@@ -3,8 +3,7 @@ import { DiPython, DiRust, DiJava, DiJavascript1, DiHtml5, DiVim, DiCss3 } from 
 import { SiCplusplus, SiJupyter } from 'react-icons/si';
 import { VscTerminalPowershell } from 'react-icons/vsc';
 
-
-const ProjectTile = ({ theme, name, updated_at, created_at, languages_url, topics, desc, url }) => {
+const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, topics, desc, url }) => {
     const [languages, setLanguages] = useState(null);
 
     const fetchLanguage = async () => {
@@ -40,7 +39,7 @@ const ProjectTile = ({ theme, name, updated_at, created_at, languages_url, topic
     }
 
     return (
-        <div className="ProjectTile flex-column">
+        <div className="ProjectTile flex-column" key={key}>
             <div className="container flex-row baseline">
                 <a className="italic-hover" href={url} target="_blank">
                     <h1 className="sub-section-title italic-hover">{name}</h1>

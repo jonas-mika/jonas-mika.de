@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { CopyBlock, CodeBlock, dracula } from "react-code-blocks";
+import { CopyBlock, dracula } from "react-code-blocks";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import 'github-markdown-css';
+
+import Loader from './Loader';
 
 const FILETYPES = {
         "md": "markdown",
@@ -41,16 +43,18 @@ const Resource = ({ course, setShowBackground }) => {
         const [name, suffix] = resource.split('.');
         const filetype = FILETYPES[suffix];
 
-        setState({
-            "fetched": true,
-            "data": await data,
-            "filetype": filetype
-        });
+        const timer =  setTimeout(async () => { 
+            setState({
+                "fetched": true,
+                "data": await data,
+                "filetype": filetype
+            });
+        }, 1000);
+        return () => clearTimeout(timer);
     }, []);
 
 
     const render = () => {
-        console.log('rendering', state);
         if (state.fetched) {
             if (state.filetype === 'markdown' || state.filetype === 'txt') {
                 return <ReactMarkdown 
@@ -59,7 +63,7 @@ const Resource = ({ course, setShowBackground }) => {
                          skipHtml={true}
                         />
             } else {   
-                return (<CodeBlock 
+                return (<CopyBlock 
                     text={state.data}
                     language={state.filetype}
                     showLineNumbers={false}
@@ -68,7 +72,7 @@ const Resource = ({ course, setShowBackground }) => {
                 />)
             }
         } else {
-            return (<div>Loading...</div>)
+            return <Loader /> 
         }
     }
 

@@ -269,6 +269,14 @@
     z-index: 0;
 }
 
+.Loader {
+    width: 100vw;
+    height: 100vh;
+    background-color: None;
+    justify-content: center;
+    z-index: 5;
+}
+
 .Resource {
     .markdown-body {
         background-color: var(--background-primary);

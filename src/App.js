@@ -5,9 +5,7 @@ import useLocalStorage from 'use-local-storage'; // store information about colo
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link, 
-  useLocation
+  Route
 } from "react-router-dom";
 
 import './styles/index.scss';
@@ -19,21 +17,20 @@ import Course from './components/Course';
 import Footer from './components/Footer';
 import Share from './components/Share';
 import NotFound from './components/NotFound';
+import Loader from './components/Loader';
 
 function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
-    const [showBackground, setShowBackground] = useState(true);
-    const [animateBackground, setAnimateBackground] = useState(true);
+    // const [showBackground, setShowBackground] = useState(true);
+    // const [animateBackground, setAnimateBackground] = useState(true);
     const [projects, setProjects] = useState(null);
-    const [languages, setLanguages] = useState([]);
     const [fetched, setFetched] = useState(false);
 
     const fetchProjects = async () => {
         fetch("https://api.github.com/users/jonas-mika/repos")
             .then(res => res.json())
             .then(data => {
-                // try fetching languages here too
                 setProjects(data);
             });
     }
@@ -46,7 +43,11 @@ function App() {
 
     useEffect(() => {
         fetchProjects();
-        setFetched(true);
+
+        const timer =  setTimeout(async () => { 
+            setFetched(true);
+        }, 2000);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -61,34 +62,33 @@ function App() {
                     outerScale={0}
                 />
 
-                <Background theme={theme} show={showBackground} animate={animateBackground}/>
+                <Background theme={theme} show={true} animate={true}/>
                 <Header theme={theme} toggleTheme={toggleTheme}/>
 
-                {fetched && 
-                <Routes>
-                    <Route path='/' element={
-                        <Home 
-                            projects={projects}
-                            languages={languages}
-                            courses={courses} 
-                            theme={theme}/>}
-                        />
-                    {courses.map((course, i) => {
-                        return <Route key={i} path={`/${course.name}/*`} element={<Course 
-                            name={course.name} 
-                            lecturers={course.lecturer}
-                            semester={course.semester}
-                            setShowBackground={setShowBackground}
-                            />}/>
-                    })}
-                    <Route path='share' element={<Share/>}/>
-                    <Route path='*' element={<NotFound/>}/>
-                </Routes>
+                {fetched  ?
+                        <Routes>
+                            <Route path='/' element={
+                                <Home 
+                                    projects={projects}
+                                    courses={courses} 
+                                    theme={theme}/>}
+                                />
+                                {courses.map((course, i) => {
+                                    return <Route key={i} path={`/${course.name}/*`} element={<Course 
+                                        name={course.name} 
+                                        lecturers={course.lecturer}
+                                        semester={course.semester}
+                                        />}/>
+                                })}
+                                <Route path='share' element={<Share/>}/>
+                                <Route path='*' element={<NotFound/>}/>
+                        </Routes>
+                    : <Loader theme={theme}/>
                 }
                 <Footer/>
             </div>
         </Router>
-    );
+    )
 }
 
 export default App;
