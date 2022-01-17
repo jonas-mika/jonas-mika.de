@@ -13,6 +13,7 @@
     "react": "^17.0.2",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-animated-cursor": "^2.2.0",
+    "react-code-blocks": "0.0.9-0",
     "react-collapse": "^5.1.1",
     "react-dark-mode-toggle-2": "^2.0.2",
     "react-dom": "^17.0.2",
