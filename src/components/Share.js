@@ -4,20 +4,13 @@ import { Link } from 'react-router-dom';
 const Share = () => {
     const [shares, setShares] = useState(null);
 
-    const testheroku = async () => {
-        fetch('https://jonas-mika.herokuapp.com/')
-            .then(res => res.json())
-            .then(res => console.log(res));
-    }
-
     const fetchApi = async (route) => {
-        fetch(route)
+        fetch(`https://jonas-mika.herokuapp.com/${route}`)
             .then(res => res.json())
             .then(data => setShares(data));
     }
 
     useEffect(() => {
-        testheroku();
         if (!shares) {
             fetchApi('api/share');
         }
@@ -36,7 +29,7 @@ const Share = () => {
                     <div className="flex-column">
                         {shares &&
                             shares.map((share, i) => {
-                                return (<a className="italic-hover" href={`/share/${share}`} target="_blank" download={share}>
+                                return (<a className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} target="_blank" download={share}>
                                             <p className="sub-section-title bold">/ {share}</p>
                                         </a>)
                             })

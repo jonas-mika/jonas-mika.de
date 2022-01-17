@@ -24,10 +24,10 @@ const Course = ({ theme, setShowBackground, name, lecturers, semester }) => {
     const navigate = useNavigate();
 
     const fetchApi = async (route) => {
-        fetch(route)
+        fetch(`https://jonas-mika.herokuapp.com/${route}`)
             .then(res => res.json())
             .then(data => setResources(data));
-    };
+    }
 
     useEffect(() => {
         setIsOverview(location.pathname === `/${name}` ? true : false);
