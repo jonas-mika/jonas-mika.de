@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 
 import Subpage from './Subpage';
 
 const Share = () => {
-    const navigate = useNavigate();
     const [state, setState] = useState({
         "fetched": false,
         "data": null
@@ -24,7 +22,7 @@ const Share = () => {
         }, 10);
         return () => clearTimeout(timer);
         }
-    }, []);
+    }, [state.data]);
 
     return (
         <div id="Share" className="Share">

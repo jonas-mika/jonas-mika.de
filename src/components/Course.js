@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Resource from './Resource';
 import Subpage from './Subpage';
@@ -33,7 +33,7 @@ const Course = ({ theme, name, lecturers, semester }) => {
             }, 10);
             return () => clearTimeout(timer);
         }
-    }, []);
+    }, [name]);
 
     return (
         <div id="Course" className="Course">

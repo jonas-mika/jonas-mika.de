@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AnimatedCursor from "react-animated-cursor"; // custom cursor
 import useLocalStorage from 'use-local-storage'; // store information about colorscheme
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
 
 import './styles/index.scss';
 
@@ -63,24 +58,24 @@ function App() {
 
                 <Header theme={theme} toggleTheme={toggleTheme}/>
                 {fetched  ?
-                        <Routes>
-                            <Route path='/' element={
-                                <Home 
-                                    projects={projects}
-                                    courses={courses} 
-                                    theme={theme}/>}
-                                />
-                                {courses.map((course, i) => {
-                                    return <Route key={i} path={`/${course.name}/*`} element={<Course 
-                                        name={course.name} 
-                                        lecturers={course.lecturer}
-                                        semester={course.semester}
-                                        />}/>
-                                })}
-                                <Route path='share' element={<Share/>}/>
-                                <Route path='contact' element={<Contact/>}/>
-                                <Route path='*' element={<NotFound/>}/>
-                        </Routes>
+                    <Routes>
+                        <Route path='/' element={
+                            <Home 
+                                projects={projects}
+                                courses={courses} 
+                                theme={theme}/>}
+                            />
+                            {courses.map((course, i) => {
+                                return <Route key={i} path={`/${course.name}/*`} element={<Course 
+                                    name={course.name} 
+                                    lecturers={course.lecturer}
+                                    semester={course.semester}
+                                    />}/>
+                            })}
+                            <Route path='share' element={<Share/>}/>
+                            <Route path='contact' element={<Contact/>}/>
+                            <Route path='*' element={<NotFound/>}/>
+                    </Routes>
                     : <Loader theme={theme} fullPage={true}/>
                 }
                 <Footer/>

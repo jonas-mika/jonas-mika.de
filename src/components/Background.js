@@ -7,16 +7,16 @@ function Points( { theme, animate } ) {
     const imgTex = useLoader(THREE.TextureLoader, circleImg);
     const bufferRef = useRef();
 
-    let t = 3;
-    let f = 0.0015;
-    let a = 2;
+    let t = 5;
+    let f = 0.005;
+    let a = .8;
 
     const graph = useCallback((x, y) => {
         return Math.sin(f * (x ** 2 + y ** 2 + t)) * a;
     }, [t, f, a, theme])
 
-    const count = 40 
-    const sep = 2.5
+    const count = 99 
+    const sep = 1 
     let positions = useMemo(() => {
         let positions = []
 
@@ -38,7 +38,7 @@ function Points( { theme, animate } ) {
 
     useFrame(() => {
         if (animate) {
-            t += 10 
+            t += 5 
             
             const positions = bufferRef.current.array;
 
@@ -86,7 +86,7 @@ function AnimationCanvas({ theme, animate }) {
     return (
         <Canvas
             colorManagement={false}
-            camera={{ position: [50, 5, 0], fov: 60 }}
+            camera={{ position: [40, 5, 0], fov: 60 }}
         >
             <Suspense fallback={null}>
                 <Points theme={theme} animate={animate}/>
