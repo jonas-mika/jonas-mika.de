@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import ProjectTile from './ProjectTile.js';
 
 const Projects = ({ theme, projects, languages }) => {

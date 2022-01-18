@@ -34,9 +34,9 @@ const Header = ( {theme, toggleTheme} ) => {
                             </a>
                     }
                     {!isMobile.isMobile() &&
-                            <AnchorLink className="link italic-hover" href="#Footer">
+                            <Link className="link italic-hover" to="contact">
                                 <p className="regular primary italic-hover">contact</p>
-                            </AnchorLink>
+                            </Link>
                     }
                     {!isMobile.isMobile() &&
                             <Link to='/share' className="link italic-hover">

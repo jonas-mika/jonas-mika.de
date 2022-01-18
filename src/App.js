@@ -11,10 +11,11 @@ import {
 import './styles/index.scss';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import Course from './components/Course';
-import Footer from './components/Footer';
 import Share from './components/Share';
+import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import Loader from './components/Loader';
 
@@ -28,6 +29,7 @@ function App() {
         fetch("https://api.github.com/users/jonas-mika/repos")
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 setProjects(data);
             });
     }
@@ -76,6 +78,7 @@ function App() {
                                         />}/>
                                 })}
                                 <Route path='share' element={<Share/>}/>
+                                <Route path='contact' element={<Contact/>}/>
                                 <Route path='*' element={<NotFound/>}/>
                         </Routes>
                     : <Loader theme={theme} fullPage={true}/>

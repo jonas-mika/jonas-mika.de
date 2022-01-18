@@ -64,26 +64,27 @@
     .main-container {
         position: relative;
         top: 30%;
-        z-index: 5;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-
-        :hover * {
-            color: var(--accent);
-        }
 
         h2 {
             font-size: 2rem;
-            padding-bottom: 2rem;
+            margin-bottom: 1rem;
+
+            * {
+                margin: 0 0.2rem;
+            }
         }
 
-        .icon * {
-            width: 3rem;
-            height: 3rem; 
-            color: var(--text-primary);
+        .down {
+            width: 4rem;
+            height: 4rem; 
+            padding: 0.5rem;
+
+            :hover *{
+                color: var(--accent);
+            }
         }
+
     }
 }
 
@@ -274,6 +275,30 @@
         pre, table * { 
             background-color: var(--background-secondary);
             color: var(--text-primary);
+        }
+    }
+}
+
+.Contact {
+    .container {
+        max-width: 960px;
+
+        .socials {
+            a {
+                width: 2rem;
+                height: 2rem;
+                margin: 0 0.2rem;
+                color: var(--text-secondary);
+
+                :hover * {
+                    color: var(--accent);
+                }
+
+                .icon  {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 }
