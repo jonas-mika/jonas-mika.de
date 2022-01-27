@@ -3,20 +3,11 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { MdAlternateEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
+import { getAge, fetchApi } from '../helpers.js';
+
 import Subpage from './Subpage';
 
 const Contact = () => {
-  function getAge() {
-    var today = new Date();
-    var birthDate = new Date("2002-01-28");
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-  }
-
   return ( 
     <div id="Contact" className="Contact">
       <div className="main-container">

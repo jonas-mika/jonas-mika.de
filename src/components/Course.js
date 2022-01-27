@@ -4,14 +4,15 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Resource from './Resource';
 import Subpage from './Subpage';
+import { API } from '../configs';
 
 const Course = ({ theme, name, lecturers, semester }) => {
   const location = useLocation();
   const [isOverview, setIsOverview] = useState(true);
   const [state, setState] = useState({
     "fetched": false,
-    "error": false,
-    "data": null
+    "data": null,
+    "error": null
   });
 
   useEffect(() => {
@@ -19,21 +20,56 @@ const Course = ({ theme, name, lecturers, semester }) => {
   }, [location]);
 
   useEffect(() => {
-    if (!state.data) {
-      const data = fetch(`https://jonas-mika.herokuapp.com/api/courses/${name}`)
-                  .then(res => res.json())
-                  .then(data => {return data});
-                  //.catch(err => {console.log(err); setState({}))
+    fetch(`${API}/api/courses/${name}`)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          setState({
+            "fetched": true,
+            "data": null,
+            "error": true
+          })
+          return null;
+        }
+      })
+      .then(res => {
+        if (res) {
+          setState({
+            "fetched": true,
+            "data": res,
+            "error": false
+          })
+        }
+      })
+  }, []);
 
-      const timer =  setTimeout(async () => { 
-        setState({
-          "fetched": true,
-          "data": await data,
-        });
-      }, 10);
-      return () => clearTimeout(timer);
+  const render = () => {
+    console.log('fetched: ', state);
+    if (!state.fetched) {
+      return (
+        <div className="primary">Loading...</div>
+      )
+    } else {
+      if (state.data !== null) {
+        return (
+          state.data.map((resource, i) => {
+            return (
+              <div key={i} className="flex-row baseline">
+                <Link className="italic-hover" to={resource}>
+                  <p className="sub-section-title bold">/ {resource}</p>
+                </Link>
+              </div>
+            )
+          })
+        )
+      } else {
+        return (
+          <div className="primary">Nothing here yet</div>
+        )
+      }
     }
-  }, [name]);
+  }
 
   return (
     <div id="Course" className="Course">
@@ -44,22 +80,8 @@ const Course = ({ theme, name, lecturers, semester }) => {
                 title={name}
                 subtitle={"/ " + semester + " / " + lecturers.join(" / ")}
             />
-
             <div className="resources flex-column">
-              {state.fetched 
-                ?
-                state.data.map((resource, i) => {
-                  return (
-                    <div key={i} className="flex-row baseline">
-                      <Link className="italic-hover" to={resource}>
-                        <p className="sub-section-title bold">/ {resource}</p>
-                      </Link>
-                    </div>
-                  )
-                })
-                : 
-                <div className="primary">Loading...</div>
-              }
+              { render() }
             </div>
           </div>
         }

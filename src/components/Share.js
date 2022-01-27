@@ -1,28 +1,63 @@
 import { useState, useEffect } from 'react';
 
 import Subpage from './Subpage';
+import { API } from '../configs';
 
 const Share = () => {
   const [state, setState] = useState({
     "fetched": false,
-    "data": null
+    "data": null, 
+    "error": null
   });
 
   useEffect(() => {
-    if (!state.data) {
-      const data = fetch(`https://jonas-mika.herokuapp.com/api/share`)
-                  .then(res => res.json())
-                  .then(data => {return data});
+    fetch(`${API}/api/share`)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          setState({
+            "fetched": true,
+            "data": null,
+            "error": true
+          })
+          return null;
+        }
+      })
+      .then(res => {
+        if (res) {
+          setState({
+            "fetched": true,
+            "data": res,
+            "error": false
+          })
+        }
+      })
+  }, []);
 
-    const timer =  setTimeout(async () => { 
-      setState({
-        "fetched": true,
-        "data": await data,
-      });
-    }, 10);
-    return () => clearTimeout(timer);
+  const render = () => {
+    if (!state.fetched) {
+      return (
+        <div className="primary">Loading...</div>
+      )
+    } else {
+      if (state.data !== null) {
+        return (
+          state.data.map((share, i) => {
+            return (
+              <a key={i} className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} download={share}>
+                <p className="sub-section-title bold">/ {share}</p>
+              </a>
+            )
+          })
+        )
+      } else {
+        return (
+          <div className="primary">Nothing here yet</div>
+        )
+      }
     }
-  }, [state.data]);
+  }
 
   return (
     <div id="Share" className="Share">
@@ -33,18 +68,7 @@ const Share = () => {
         />
 
         <div className="container flex-column">
-          {state.data 
-            ? 
-            state.data.map((share, i) => {
-              return (
-                <a className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} download={share}>
-                  <p className="sub-section-title bold">/ {share}</p>
-                </a>
-              )
-            })
-            :
-            <div className="primary">Loading...</div>
-          }
+          { render() }
         </div>
       </div>
     </div>
