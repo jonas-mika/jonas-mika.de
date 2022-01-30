@@ -50,7 +50,7 @@ const Course = ({ theme, name, lecturers, semester }) => {
                         state.data.map((resource, i) => {
                             return (<div key={i} className="flex-row baseline">
                                         <Link className="italic-hover" to={resource}>
-                                            <p className="sub-section-title bold">/ {resource}</p>
+                                            <p className="normal bold primary">/ {resource}</p>
                                         </Link>
                                     </div>)
                         })

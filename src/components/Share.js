@@ -36,7 +36,7 @@ const Share = () => {
                     {state.data ? 
                         state.data.map((share, i) => {
                             return (<a className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} download={share}>
-                                        <p className="sub-section-title bold">/ {share}</p>
+                                        <p className="normal bold primary">/ {share}</p>
                                     </a>)
                             })
                             :
