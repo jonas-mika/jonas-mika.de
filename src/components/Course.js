@@ -42,7 +42,7 @@ const Course = ({ theme, name, lecturers, semester }) => {
           })
         }
       })
-  }, []);
+  }, [location]);
 
   const render = () => {
     console.log('fetched: ', state);

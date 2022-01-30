@@ -8,7 +8,7 @@
 - switch page animations
 
 ## GENERAL
-- [ ] make a helper.js / config.js and read common functions from there (and not
+- [x] make a helper.js / config.js and read common functions from there (and not
   define 
 - [ ] color when highlighting in light mode markdown wrong (needs to be dark
   color)
@@ -25,18 +25,16 @@
 
 ## NAVBAR
 - [ ] hamburger menu for mobile
-- [ ] projects subpage and projects link in navbar links there  
-- [ ] materials drop down links in navbar
+- [x] projects subpage and projects link in navbar links there  
+- [x] materials drop down links in navbar
 
 ## PROJECTS/ PROJECT TILE
 - [x] dynamic adjust of content of project tile
 - [x] add na to list of projects (and see that querying fork from jonas-mika
   works)
-- [ ] make projects page
+- [x] make projects page
 
 ## COURSE 
-- [ ] fetch courses from backend (move courses.json into backend and serve from
-  there)
 - [x] loading/ nothing here yet/ error
 - [ ] make subsections (code, lecture notes, exercises)
 

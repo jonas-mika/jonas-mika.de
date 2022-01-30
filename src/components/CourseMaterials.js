@@ -11,6 +11,7 @@ const CourseMaterials = ({ theme, courses }) => {
         <div className="courses flex-column">
           {courses.map((course, i) => {
              return (
+            
                <div key={i} className="flex-row baseline">
                   {!isMobile.isMobile() &&
                     <h2 className="semester sub-section-text">{course.semester} \</h2>
