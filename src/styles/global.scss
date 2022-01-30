@@ -160,9 +160,9 @@
 }
 
 .normal {
-  font-size: 1.2rem;
+  font-size: 1rem;
 
-  @media screen and (max-width: $breakpoint-laptop) { font-size: 1.0rem; }
+  @media screen and (max-width: $breakpoint-laptop) { font-size: 0.9rem; }
   @media screen and (max-width: $breakpoint-phone) { font-size: 0.8rem; }
 }
 
