@@ -2,10 +2,16 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CopyBlock, dracula } from "react-code-blocks";
 import ReactMarkdown from 'react-markdown'
+import remarkParse from 'remark-parse'
+import remarkMath from 'remark-math'
+import remarkRehype from 'remark-rehype'
 import remarkGfm from 'remark-gfm'
+import rehypeKatex from 'rehype-katex'
+import rehypeStringify from 'rehype-stringify'
 import 'github-markdown-css';
 
 import Subpage from './Subpage';
+import MarkdownRender from './MarkdownRender';
 
 const FILETYPES = {
   "md": "markdown",
@@ -36,7 +42,6 @@ const Resource = ({ course }) => {
                   //.then(data => data.resolve())
                   .then(data => {return data});
 
-
     // getting filetype
     const suffix = resource.split('.')[1];
     const filetype = FILETYPES[suffix];
@@ -59,9 +64,10 @@ const Resource = ({ course }) => {
         return (
           <div className="markdown-body" style={{marginTop: '3rem'}}>
           <ReactMarkdown 
-               children={state.data} 
-               remarkPlugins={[remarkGfm]}
-               skipHtml={true}
+             children={state.data} 
+             remarkPlugins={[remarkGfm, remarkParse, remarkMath, remarkRehype]}
+             rehypePlugins={[rehypeKatex, rehypeStringify]}
+             skipHtml={true}
           />
           </div>
         )
