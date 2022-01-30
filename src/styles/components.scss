@@ -1,303 +1,285 @@
 .Navbar {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    z-index: 5;
-    padding: 1rem 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+  padding: 1rem 0;
 
-    .main-container {
-        justify-content: space-between;
-        align-items: center;
-        height: 100px;
+  .main-container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
 
-        .logo {
-            transition: transform 0.2s ease-in;
+    .logo {
+      transition: transform 0.2s ease-in;
 
-            :hover .change-color { 
-                transform: skewX(-10deg);
-            }
+      :hover .change-color { 
+        transform: skewX(-10deg);
+      }
 
-            a {
-                font-size: 2rem;
-                display: flex;
-            }
+      a {
+        font-size: 2rem;
+        display: flex;
+      }
 
-            p {
-                background-color: None;
-                font-size: 1.25rem;
-            }
-        }
-
-        .menu {
-            align-items: center;
-            justify-content: flex-end;
-            width: auto;
-            background-color: None;
-
-            a {
-                padding-right: 1.5rem;
-
-                p {
-                    font-size: 1.05rem;
-                }
-            }
-        }
-
-        .toggle {
-            display: flex;
-
-            * {
-                background-color: None;
-            }
-        }
+      p {
+        background-color: None;
+        font-size: 1.25rem;
+      }
     }
+
+    .menu {
+      align-items: center;
+      justify-content: flex-end;
+      width: auto;
+      background-color: None;
+
+      a {
+        padding-right: 1.5rem;
+
+        p {
+          font-size: 1.05rem;
+        }
+      }
+    }
+
+    .toggle {
+      display: flex;
+
+      * {
+        background-color: None;
+      }
+    }
+  }
 }
 
 
 .Hero {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 
-    .main-container {
-        position: relative;
-        top: 30%;
-        align-items: center;
+  .main-container {
+    position: relative;
+    top: 30%;
+    align-items: center;
 
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
 
-            * {
-                margin: 0 0.2rem;
-            }
-        }
-
-        .down {
-            width: 4rem;
-            height: 4rem; 
-            padding: 0.5rem;
-
-            :hover *{
-                color: var(--accent);
-            }
-        }
-
+      * {
+        margin: 0 0.2rem;
+      }
     }
+
+    .down {
+      width: 4rem;
+      height: 4rem; 
+      padding: 0.5rem;
+
+      :hover *{
+        color: var(--accent);
+      }
+    }
+
+  }
 }
 
 .Dummy {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 .Projects {
-    .main-container {
-        .title {
-            font-size: 5rem;
-            font-weight: 700;
-        }
-
-        .sub-section {
-            .subheader  {
-                margin-top: 3rem;
-            }
-        }
+  .main-container {
+    .title {
+      font-size: 5rem;
+      font-weight: 700;
     }
+
+    .sub-section {
+      .subheader  {
+        margin-top: 3rem;
+      }
+    }
+  }
 }
 
 .ProjectTile {
-    .container {
-        align-items: center;
-        @media screen and (max-width: 700px) {
-            width: 100%;
-        }
+  .container {
+    align-items: center;
+    width: 100%;
 
-        .metadata {
-            .metadata-item {
-                margin: 0 0.1rem;
-            }
+    display: flex;
+    align-items: baseline;
 
-            .languages {
-                padding: 0 1rem;
-
-                .lang-icon {
-                    height: 2rem;
-                    width: 2rem;
-                    margin: 0.1rem;
-                    overflow-x: hidden;
-                    overflow-y: hidden;
-
-                    ::-webkit-scrollbar {
-                        display: None;
-                    }
-
-                    * {
-                        color: var(--text-secondary);
-                        height: 100%;
-                        width: 100%;
-                    }
-                }
-            }
-        }
+    a {
+      word-break: break-all;
+      max-width: 80%;
     }
+
+    .metadata {
+      padding-left: 1rem;
+    }
+  }
 }
 
 .CourseMaterials {
-    z-index: 4;
+  z-index: 4;
 
-    .main-container {
-        align-items: flex-end;
+  .main-container {
+    align-items: flex-end;
 
-        .courses {
-            align-items: flex-end;
+    .courses {
+      align-items: flex-end;
 
-            .semester {
-                padding-right: 1rem;
-            }
+      .semester {
+        padding-right: 1rem;
+      }
 
-            .name {
-                text-align: right;
-            }
-        }
+      .name {
+        text-align: right;
+      }
     }
+  }
 }
 
 .Subpage {
-    margin-bottom: 3rem;
-    padding-top: 200px;
-    z-index: 4;
+  margin-bottom: 3rem;
+  padding-top: 200px;
+  z-index: 4;
 
-    .section-title {
-        margin-top: 2rem;
-        margin-bottom: 0;
-    }
+  .section-title {
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
 
 }
 
 .NotFound {
-    z-index: 4;
-    .main-container {
-        padding-top: 200px;
+  z-index: 4;
+  .main-container {
+    padding-top: 200px;
 
-        .back {
-            h2 {
-                display: inline-block
-            }
-        }
-
-        .title {
-            margin-top: 2rem;
-        }
+    .back {
+      h2 {
+        display: inline-block
+      }
     }
+
+    .title {
+      margin-top: 2rem;
+    }
+  }
 }
 
 .Footer {
-    margin-top: auto;
-    height: 200px;
-    background-color: var(--background-primary);
-    z-index: 5;
+  margin-top: auto;
+  height: 200px;
+  background-color: var(--background-primary);
+  z-index: 5;
 
 
-    .main-container {
-        height: 100%;
-        min-width: 200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  .main-container {
+    height: 100%;
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        .right {
-            display: flex;
-            flex-direction: column;
+    .right {
+      display: flex;
+      flex-direction: column;
 
-            a * {
-                width: 30px;
-                height: 30px;
-                color: var(--text-secondary);
+      a * {
+        width: 30px;
+        height: 30px;
+        color: var(--text-secondary);
 
-                @media screen and (max-width: $breakpoint-phone) {
-                  width: 25px;
-                  height: 25px;
-                }
-            }
-
-            a:hover * {
-                color: var(--accent);
-            }
+        @media screen and (max-width: $breakpoint-phone) {
+          width: 25px;
+          height: 25px;
         }
+      }
+
+      a:hover * {
+        color: var(--accent);
+      }
     }
+  }
 }
 
 .Background {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--background-primary);
-    z-index: 0;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--background-primary);
+  z-index: 0;
 }
 
 .Loader {
-    width: 100%;
-    background-color: None;
-    justify-content: center;
-    z-index: 5;
+  width: 100%;
+  background-color: None;
+  justify-content: center;
+  z-index: 5;
 }
 
 .Resource {
+  width: 100%;
+
+  @media screen and (max-width: 1000px) {
+    max-width: 100%;
+  }
+
+  .markdown-body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    margin-bottom: 8rem;
     width: 100%;
 
-    @media screen and (max-width: 1000px) {
-        max-width: 100%;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--text-primary);
+
+      @media screen and (max-width: 1000px) {
+        font-size: 2rem;
+      }
     }
 
-    .markdown-body {
-        background-color: var(--background-primary);
-        color: var(--text-primary);
-        margin-bottom: 8rem;
-        width: 100%;
-
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--text-primary);
-
-            @media screen and (max-width: 1000px) {
-                font-size: 2rem;
-            }
-        }
-
-        pre, table * { 
-            background-color: var(--background-secondary);
-            color: var(--text-primary);
-        }
+    pre, table * { 
+      background-color: var(--background-secondary);
+      color: var(--text-primary);
     }
+  }
 }
 
 .Contact {
-    .container {
-        max-width: 960px;
+  .container {
+    max-width: 960px;
 
-        .socials {
-            a {
-                width: 2rem;
-                height: 2rem;
-                margin: 0 0.2rem;
-                color: var(--text-secondary);
+    .socials {
+      a {
+        width: 2rem;
+        height: 2rem;
+        margin: 0 0.2rem;
+        color: var(--text-secondary);
 
-                :hover * {
-                    color: var(--accent);
-                }
-
-                .icon  {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
+        :hover * {
+          color: var(--accent);
         }
+
+        .icon  {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
+  }
 }

@@ -1,7 +1,7 @@
 import ProjectTile from './ProjectTile.js';
 
 const Projects = ({ theme, projects, languages }) => {
-    const topics = ['algorithms', 'machine-learning', 'nlp', 'webdev', 'other']
+    const topics = ['algorithms', 'machine-learning', 'network-analysis', 'nlp', 'webdev', 'other']
 
     return (
         <div id="Projects" className="Projects section">
