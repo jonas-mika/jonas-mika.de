@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import Subpage from './Subpage';
 import ProjectTile from './ProjectTile';
 

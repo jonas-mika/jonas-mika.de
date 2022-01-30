@@ -155,8 +155,8 @@
 .small {
   font-size: 0.8rem;
 
-  @media screen and (max-width: $breakpoint-laptop) { font-size: 0.6rem; }
-  @media screen and (max-width: $breakpoint-phone) { font-size: 0.4rem; }
+  @media screen and (max-width: $breakpoint-laptop) { font-size: 0.7rem; }
+  @media screen and (max-width: $breakpoint-phone) { font-size: 0.7rem; }
 }
 
 .normal {

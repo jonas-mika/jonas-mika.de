@@ -1,7 +1,5 @@
 import { DarkModeToggle } from "react-dark-mode-toggle-2";
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'react-router-dom';
-import useMobileDetect from 'use-mobile-detect-hook';
 import { useWindowWidth } from '@react-hook/window-size'
 
 const Header = ( {theme, toggleTheme} ) => {
@@ -24,9 +22,9 @@ const Header = ( {theme, toggleTheme} ) => {
             <Link className="link italic-hover" to="projects">
               <p className="regular primary italic-hover">projects</p>
             </Link>
-            <div class="dropdown">
-              <p class="dropbtn regular primary italic-hover">course materials</p>
-              <div class="dropdown-content flex-column">
+            <div className="dropdown">
+              <p className="dropbtn regular primary italic-hover">course materials</p>
+              <div className="dropdown-content flex-column">
                 {courses && 
                   courses.map((course, i) => {
                     return (<Link className="secondary" to={course.name} key={i}>{course.name}</Link>)

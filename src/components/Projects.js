@@ -17,7 +17,6 @@ const Projects = ({ theme, projects, languages }) => {
                 if (repo.topics.includes(topic)) { 
                   return (
                     <ProjectTile
-                      key={i}
                       name={repo.name}
                       updated_at={repo.updated_at.slice(0, 4)}
                       created_at={repo.created_at.slice(0, 4)}

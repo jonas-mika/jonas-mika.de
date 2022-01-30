@@ -39,9 +39,9 @@
 - [ ] make subsections (code, lecture notes, exercises)
 
 ## RESOURCE
-- [ ] adjust color theme of code 
-- [ ] adjust styling of md 
-- [ ] make latex work
+- [x] adjust color theme of code 
+- [x] adjust styling of md 
+- [x] make latex work
 
 ## BACKGROUND
-- [x] make more fancy 
+- [ ] make more fancy 

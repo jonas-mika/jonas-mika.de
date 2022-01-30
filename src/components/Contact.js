@@ -3,7 +3,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { MdAlternateEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
-import { getAge, fetchApi } from '../helpers.js';
+import { getAge } from '../helpers.js';
 
 import Subpage from './Subpage';
 
