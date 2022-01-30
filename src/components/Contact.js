@@ -17,8 +17,8 @@ const Contact = () => {
         />
 
         <div className="container flex-column">
-          <h1 className="subpage-title">hej!</h1>
-          <p className="subpage-text">
+          <h1 className="normal primary bold" style={{marginBottom: '1rem'}}>hej!</h1>
+          <p className="normal primary">
               my name is mika and I am a {getAge()}-year old student from germany that is currently
               studying a bachelor of data science at the it university of copenhagen. 
               <br/><br/>
