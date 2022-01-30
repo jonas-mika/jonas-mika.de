@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CopyBlock, nord } from "react-code-blocks";
 import ReactMarkdown from 'react-markdown'
-import remarkParse from 'remark-parse'
 import remarkMath from 'remark-math'
-import remarkRehype from 'remark-rehype'
 import remarkGfm from 'remark-gfm'
 import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
@@ -65,7 +63,7 @@ const Resource = ({ course, theme }) => {
             <div className="markdown-body" style={{marginTop: '3rem'}}>
               <ReactMarkdown 
                  children={state.data} 
-                 remarkPlugins={[remarkGfm, remarkParse, remarkMath, remarkRehype]}
+                 remarkPlugins={[remarkGfm, remarkMath]}
                  rehypePlugins={[rehypeKatex, rehypeStringify]}
                  skipHtml={true}
               />
