@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import Subpage from './Subpage';
 
 const Contact = () => {
-
     function getAge() {
         var today = new Date();
         var birthDate = new Date("2002-01-28");

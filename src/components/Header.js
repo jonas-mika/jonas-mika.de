@@ -19,9 +19,9 @@ const Header = ( {theme, toggleTheme} ) => {
 
                 <div className="menu no-select flex-row">
                     {!isMobile.isMobile() &&
-                            <AnchorLink className="link italic-hover" href="#Projects">
+                            <Link className="link italic-hover" to="projects">
                                 <p className="regular primary italic-hover">projects</p>
-                            </AnchorLink>
+                            </Link>
                     }
                     {!isMobile.isMobile() &&
                             <AnchorLink className="link italic-hover" href="#CourseMaterials">
