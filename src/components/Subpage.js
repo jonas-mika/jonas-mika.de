@@ -6,7 +6,7 @@ const Subpage = ({ title, subtitle, content }) => {
     return (
       <div id="Subpage" className="Subpage">
         <button className="italic-hover" onClick={() => navigate(-1)}>
-          <h2 className="secondary small italic-hover">back</h2> 
+          <p className="secondary small italic-hover">back</p> 
         </button>
 
         <h1 className="section-title">{ title }</h1> 

@@ -35,7 +35,6 @@ const Contact = () => {
               <br/>
               i am looking forward to hearing from you!
           </p>
-
           <div className="socials flex-row" style={{marginTop: "2rem"}}>
               <a
                   href="mailto:contact@jonas-mika.de"

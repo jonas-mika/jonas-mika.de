@@ -25,3 +25,6 @@ yarn-error.log*
 
 # auth
 */_config.json
+
+# dev
+*/styles/styled-components

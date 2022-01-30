@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Course from './components/Course';
 import Share from './components/Share';
 import Contact from './components/Contact';
+import ProjectPage from './components/ProjectPage.js';
 import NotFound from './components/NotFound';
 import Loader from './components/Loader';
 
@@ -81,12 +82,12 @@ function App() {
 
             <Route path='share' element={<Share/>}/>
             <Route path='contact' element={<Contact/>}/>
+            <Route path='projects' element={<ProjectPage/>}/>
             <Route path='*' element={<NotFound/>}/>
           </Routes>
           : 
           <Loader theme={theme} fullPage={true}/>
         }
-
         <Footer/>
       </div>
     </Router>

@@ -8,7 +8,7 @@ const Hero = ({ theme } ) => {
       <div className="main-container flex-column">
         <h2 className="title bold primary flex-row">
           hej, i'm  
-          <Link className="italic-hover" to="contact"><p>mika</p></Link>
+          <Link className="italic-hover underline" to="contact"><p>mika</p></Link>
         </h2>
         <AnchorLink href='#Projects' className="down">
           <MdArrowDropDown className="icon"/>
