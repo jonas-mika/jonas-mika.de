@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, nord } from "react-code-blocks";
 import ReactMarkdown from 'react-markdown'
 import remarkParse from 'remark-parse'
 import remarkMath from 'remark-math'
@@ -11,7 +11,6 @@ import rehypeStringify from 'rehype-stringify'
 import 'github-markdown-css';
 
 import Subpage from './Subpage';
-import MarkdownRender from './MarkdownRender';
 
 const FILETYPES = {
   "md": "markdown",
@@ -27,7 +26,7 @@ const FILETYPES = {
   "js": "javascript",
 }
 
-const Resource = ({ course }) => {
+const Resource = ({ course, theme }) => {
   const { resource } = useParams();
   const [state, setState] = useState({
     "fetched": false,
@@ -62,24 +61,28 @@ const Resource = ({ course }) => {
     if (state.fetched) {
       if (state.filetype === 'markdown' || state.filetype === 'txt') {
         return (
-          <div className="markdown-body" style={{marginTop: '3rem'}}>
-          <ReactMarkdown 
-             children={state.data} 
-             remarkPlugins={[remarkGfm, remarkParse, remarkMath, remarkRehype]}
-             rehypePlugins={[rehypeKatex, rehypeStringify]}
-             skipHtml={true}
-          />
+          <div style={{width: '80%'}}>
+            <div className="markdown-body" style={{marginTop: '3rem'}}>
+              <ReactMarkdown 
+                 children={state.data} 
+                 remarkPlugins={[remarkGfm, remarkParse, remarkMath, remarkRehype]}
+                 rehypePlugins={[rehypeKatex, rehypeStringify]}
+                 skipHtml={true}
+              />
+            </div>
           </div>
         )
       } else {   
           return (
+          <div style={{width: '80%'}}>
             <CopyBlock 
               text={state.data}
               language={state.filetype}
               showLineNumbers={false}
-              theme={dracula}
+              theme={nord}
               wrapLines
             />
+          </div>
           )
         }
      } else {

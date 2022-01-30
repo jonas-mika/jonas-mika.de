@@ -87,7 +87,7 @@ const Course = ({ theme, name, lecturers, semester }) => {
         }
 
         <Routes>
-            <Route path=':resource' element={<Resource course={name}/>}/>
+            <Route path=':resource' element={<Resource course={name} theme={theme}/>}/>
         </Routes>
       </div>
     </div>
