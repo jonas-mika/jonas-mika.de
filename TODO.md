@@ -11,7 +11,10 @@
   define 
 - [ ] color when highlighting in light mode markdown wrong (needs to be dark
   color)
-- [ ] selection color to accent
+- [x] selection color to accent
+
+## HERO
+- [x] underline mika
 
 ## HOME 
 - [ ] sticky scroll from top to projects
