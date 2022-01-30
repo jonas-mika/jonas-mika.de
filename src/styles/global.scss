@@ -9,6 +9,16 @@
   cursor: None;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: var(--accent);
+}
+
+::selection {
+  color: white;
+  background: var(--accent);
+}
+
 // wrappers
 .page-container {
   min-height: 100vh;

@@ -11,6 +11,7 @@
   define 
 - [ ] color when highlighting in light mode markdown wrong (needs to be dark
   color)
+- [ ] selection color to accent
 
 ## HOME 
 - [ ] sticky scroll from top to projects
