@@ -8,7 +8,7 @@ const ProjectPage = ({ projects }) => {
       <div className="main-container">
         <Subpage 
             title={"projects"}
-            subtitle={"/ list of all projects"}
+            subtitle={""}
         />
       </div>
     </div>

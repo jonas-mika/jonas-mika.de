@@ -64,7 +64,7 @@ const Share = () => {
       <div className="main-container">
         <Subpage 
           title={"share"} 
-          subtitle={"/ temporary downloads"}
+          subtitle={""}
         />
 
         <div className="container flex-column">
