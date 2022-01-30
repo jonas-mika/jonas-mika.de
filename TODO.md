@@ -1,14 +1,6 @@
 # TODO
 
-<<<<<<< HEAD
-## Current TODOS
 
-GENERAL
-- [x] format code correctly (two space tabs, unified way of writing jsx
-  components)
-- [ ] adjust styling for ipad
-- [ ] use styled components
-=======
 ## IDEAS
 - expand resource file to nicely format code, fetch code files and syntax
   highlight
@@ -16,7 +8,6 @@ GENERAL
 - switch page animations
 
 ## GENERAL
->>>>>>> dev
 - [ ] make a helper.js / config.js and read common functions from there (and not
   define 
 - [ ] color when highlighting in light mode markdown wrong (needs to be dark
@@ -26,14 +17,7 @@ GENERAL
 ## HERO
 - [x] underline mika
 
-<<<<<<< HEAD
-HERO 
-- [ ] make mika underline (or otehrwise visible that clickable)
-
-HOME 
-=======
 ## HOME 
->>>>>>> dev
 - [ ] sticky scroll from top to projects
 
 ## CONTACT

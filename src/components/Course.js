@@ -57,7 +57,7 @@ const Course = ({ theme, name, lecturers, semester }) => {
             return (
               <div key={i} className="flex-row baseline">
                 <Link className="italic-hover" to={resource}>
-                  <p className="sub-section-title bold">/ {resource}</p>
+                  <p className="normal primary bold" style={{margin: '0.2rem 0'}}>/ {resource}</p>
                 </Link>
               </div>
             )
