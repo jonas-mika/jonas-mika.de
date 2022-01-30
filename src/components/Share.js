@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import Subpage from './Subpage';
-import { API } from '../configs';
+import { API } from '../configs.js';
 
 const Share = () => {
   const [state, setState] = useState({
