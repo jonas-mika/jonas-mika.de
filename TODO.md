@@ -28,8 +28,8 @@
 - [ ] materials drop down links in navbar
 
 ## PROJECTS/ PROJECT TILE
-- [ ] dynamic adjust of content of project tile
-- [ ] add na to list of projects (and see that querying fork from jonas-mika
+- [x] dynamic adjust of content of project tile
+- [x] add na to list of projects (and see that querying fork from jonas-mika
   works)
 - [ ] make projects page
 
