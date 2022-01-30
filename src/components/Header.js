@@ -2,9 +2,10 @@ import { DarkModeToggle } from "react-dark-mode-toggle-2";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'react-router-dom';
 import useMobileDetect from 'use-mobile-detect-hook';
+import { useWindowWidth } from '@react-hook/window-size'
 
 const Header = ( {theme, toggleTheme} ) => {
-  const isMobile = useMobileDetect();
+  const width = useWindowWidth();
   const courses = require('../courses.json');
 
   return (
@@ -17,47 +18,41 @@ const Header = ( {theme, toggleTheme} ) => {
       </Link>
     </div>
 
-    <div className="menu no-select flex-row">
-      {!isMobile.isMobile() &&
-        <Link className="link italic-hover" to="projects">
-          <p className="regular primary italic-hover">projects</p>
-        </Link>
-      }
-      {!isMobile.isMobile() &&
-        <div class="dropdown">
-          <p class="dropbtn regular primary italic-hover">course materials</p>
-          <div class="dropdown-content flex-column">
-            {courses && 
-              courses.map((course, i) => {
-                return (<Link className="secondary" to={course.name} key={i}>{course.name}</Link>)
-              })
-            }
-          </div>
+    <div className="flex-row">
+      {width > 1100 &&
+        <div className="menu no-select flex-row">
+            <Link className="link italic-hover" to="projects">
+              <p className="regular primary italic-hover">projects</p>
+            </Link>
+            <div class="dropdown">
+              <p class="dropbtn regular primary italic-hover">course materials</p>
+              <div class="dropdown-content flex-column">
+                {courses && 
+                  courses.map((course, i) => {
+                    return (<Link className="secondary" to={course.name} key={i}>{course.name}</Link>)
+                  })
+                }
+              </div>
+            </div>
+            <a className="link italic-hover" href="https://jonas-mika.herokuapp.com/api/assets/general/resume.pdf" target="noopener">
+              <p className="regular primary italic-hover">resume</p>
+            </a>
+            <Link className="link italic-hover" to="contact">
+              <p className="regular primary italic-hover">contact</p>
+            </Link>
+            <Link to='/share' className="link italic-hover">
+              <p className="regular primary italic-hover">share</p>
+            </Link>
         </div>
       }
-      {!isMobile.isMobile() &&
-        <a className="link italic-hover" href="https://jonas-mika.herokuapp.com/api/assets/general/resume.pdf" target="noopener">
-          <p className="regular primary italic-hover">resume</p>
-        </a>
-      }
-      {!isMobile.isMobile() &&
-        <Link className="link italic-hover" to="contact">
-          <p className="regular primary italic-hover">contact</p>
-        </Link>
-      }
-      {!isMobile.isMobile() &&
-        <Link to='/share' className="link italic-hover">
-          <p className="regular primary italic-hover">share</p>
-        </Link>
-      }
       <div className="toggle">
-      <DarkModeToggle 
-        onChange={toggleTheme}
-        isDarkMode={theme === 'dark' ? true : false} 
-        size={45} 
-      />
+        <DarkModeToggle 
+          onChange={toggleTheme}
+          isDarkMode={theme === 'dark' ? true : false} 
+          size={45} 
+        />
       </div>
-    </div>
+      </div>
     </div>
   </div>
   );

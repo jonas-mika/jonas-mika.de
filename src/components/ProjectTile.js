@@ -2,8 +2,10 @@
 //import { DiPython, DiRust, DiJavascript1, DiHtml5, DiVim, DiCss3 } from 'react-icons/di';
 //import { SiCplusplus, SiJupyter } from 'react-icons/si';
 //import { VscTerminalPowershell } from 'react-icons/vsc';
+import { useWindowWidth } from '@react-hook/window-size'
 
 const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, topics, desc, url }) => {
+  const width = useWindowWidth();
   /*
   const [languages, setLanguages] = useState(null);
 
@@ -43,13 +45,15 @@ const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, 
   return (
     <div className="ProjectTile flex-column" key={key}>
       <div className="container flex-row">
-        <a className="italic-hover" href={url} target="noopener">
+        <a className="italic-hover" href={url} target="noopener" style={{maxWidth: width < 700 ? '100%' : '85%'}}>
           <h1 className="sub-section-title italic-hover">{name}</h1>
         </a>
 
-        <div className="metadata flex-row">
-          <div className="metadata-item"><h2 className="sub-section-text">/ {created_at}</h2></div>
-        </div>
+        {width > 700 &&
+          <div className="metadata flex-row">
+            <div className="metadata-item"><h2 className="sub-section-text">/ {created_at}</h2></div>
+          </div>
+        }
       </div>
     </div>
   );

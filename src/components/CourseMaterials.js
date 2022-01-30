@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import useMobileDetect from 'use-mobile-detect-hook';
+import { useWindowWidth } from '@react-hook/window-size'
 
 const CourseMaterials = ({ theme, courses }) => {
-  const isMobile = useMobileDetect();
+  const width = useWindowWidth()
 
   return (
     <div id="CourseMaterials" className="CourseMaterials section">
@@ -11,9 +11,8 @@ const CourseMaterials = ({ theme, courses }) => {
         <div className="courses flex-column">
           {courses.map((course, i) => {
              return (
-            
                <div key={i} className="flex-row baseline">
-                  {!isMobile.isMobile() &&
+                  {width > 700 &&
                     <h2 className="semester sub-section-text">{course.semester} \</h2>
                   }
 
