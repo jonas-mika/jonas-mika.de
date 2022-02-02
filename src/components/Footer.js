@@ -6,13 +6,13 @@ const Footer = ({ theme }) => {
     <div id="Footer" className="Footer">
       <div className="main-container">
         <div className="left">
-          <p className="bold primary normal" style={{marginBottom: '.2rem'}}>Jonas-Mika Senghaas</p>
-          <p className="regular secondary normal" style={{marginBottom: '1.5rem'}}>2300 København</p>
-          <a className="italic-hover" href="mailto:contact@jonas-mika.de"><p className="italic-hover secondary normal">contact@jonas-mika.de</p></a>
+          <p className="bold primary small" style={{marginBottom: '.2rem'}}>Jonas-Mika Senghaas</p>
+          <p className="regular secondary small" style={{marginBottom: '.4rem'}}>2300 København</p>
+          <a className="italic-hover" href="mailto:contact@jonas-mika.de"><p className="italic-hover secondary small">contact@jonas-mika.de</p></a>
           <a className="italic-hover" href="https://jonas-mika.herokuapp.com/api/share/resume.pdf" download="resume">
-            <p className="italic-hover secondary normal">download resume</p>
+            <p className="italic-hover secondary small">download resume</p>
           </a>
-          <p className="italic secondary" style={{fontSize:'0.7rem', marginTop: '1.5rem'}} >&copy; 2022 Jonas-Mika Senghaas</p>
+          <p className="italic secondary" style={{fontSize:'0.7rem', marginTop: '.4rem'}} >&copy; 2022 Jonas-Mika Senghaas</p>
         </div>
         <div className="right">
           <a

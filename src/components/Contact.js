@@ -16,7 +16,7 @@ const Contact = () => {
           subtitle={""}
         />
 
-        <div className="container flex-column" style={{marginBottom: '10rem'}}>
+        <div className="container flex-column" style={{marginTop: '3rem'}}>
           <h1 className="normal primary bold" style={{marginBottom: '1rem'}}>hej!</h1>
           <p className="normal primary">
               my name is mika and I am a {getAge()}-year old student from germany that is currently

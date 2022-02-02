@@ -180,9 +180,9 @@
 
 .Footer {
   margin-top: auto;
-  height: 200px;
   background-color: var(--background-primary);
   z-index: 5;
+  padding: 5rem 0 1rem 0;
 
   .main-container {
     height: 100%;
@@ -196,13 +196,13 @@
       flex-direction: column;
 
       a * {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         color: var(--text-secondary);
 
         @media screen and (max-width: $breakpoint-phone) {
-          width: 25px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
         }
       }
 

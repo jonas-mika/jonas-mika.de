@@ -82,10 +82,10 @@ const Course = ({ theme, coursename, lecturers, semester }) => {
           state.data[topic].map((resource, i) => {
             return (
               <div className="flex-row">
-                <h1 className="page-item" style={{fontSize: '1.6rem', paddingRight: '.5rem'}}>/</h1>
+                <h1 className="page-item large primary" style={{paddingRight: '.5rem'}}>/</h1>
                 <div key={i} className="flex-row baseline">
                   <Link className="italic-hover" to={`${topic}/${resource}`} >
-                    <h1 className="page-item italic-hover" style={{fontSize: '1.6rem'}}>{resource}</h1>
+                    <h1 className="page-item large italic-hover">{resource}</h1>
                   </Link>
                 </div>
               </div>
