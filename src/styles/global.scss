@@ -38,7 +38,7 @@
 
 .section {
   position: relative;
-  padding: 10rem 0;
+  padding: 5rem 0;
   background-color: var(--background-primary);
 }
 
@@ -141,10 +141,10 @@
 }
 
 .small {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 
-  @media screen and (max-width: $breakpoint-laptop) { font-size: 0.8rem; }
-  @media screen and (max-width: $breakpoint-phone) { font-size: 0.7rem; }
+  @media screen and (max-width: $breakpoint-laptop) { font-size: 0.85rem; }
+  @media screen and (max-width: $breakpoint-phone) { font-size: 0.8rem; }
 }
 
 .normal {
