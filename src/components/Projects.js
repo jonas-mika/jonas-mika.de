@@ -6,12 +6,12 @@ const Projects = ({ theme, projects, languages }) => {
   return (
     <div id="Projects" className="Projects section">
       <div className="main-container">
-        <h1 className="section-title">projects</h1>
+        <h1 className="title">projects</h1>
         <div>
         {topics.map(topic => {
           return (
             <div id={topic} className="sub-section">
-            <h2 className="sub-section-divider">{topic}</h2>
+            <h2 className="divider">{topic}</h2>
             {projects && 
               projects.map((repo, i) => {
                 if (repo.topics.includes(topic)) { 

@@ -9,9 +9,9 @@ const Subpage = ({ title, subtitle, content }) => {
           <p className="secondary small italic-hover">back</p> 
         </button>
 
-        <h1 className="section-title">{ title }</h1> 
+        <h1 className="title" style={{marginBottom: '0.2rem', marginTop: '2rem'}}>{ title }</h1> 
         <div className="flex-row"> 
-          <p className="semester sub-section-text">{ subtitle }</p>
+          <p className="semester page-item-subtext">{ subtitle }</p>
         </div>
       </div>
     );

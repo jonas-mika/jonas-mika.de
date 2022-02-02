@@ -76,15 +76,18 @@ const Course = ({ theme, coursename, lecturers, semester }) => {
 
   const renderTopic = (topic) => {
     return (
-      <div style={{marginBottom: '5rem'}}>
-        <h2 className="sub-section-divider" style={{marginTop: '0'}}>{topic}</h2>
+      <div>
+        <h2 className="divider">{topic}</h2>
         {
           state.data[topic].map((resource, i) => {
             return (
-              <div key={i} className="flex-row baseline">
-                <Link className="italic-hover" to={`${topic}/${resource}`} >
-                  <h1 className="sub-section-title italic hover" style={{fontSize: '1.5rem', margin: '0.2rem 0'}}>/ {resource}</h1>
-                </Link>
+              <div className="flex-row">
+                <h1 className="page-item" style={{fontSize: '1.6rem', paddingRight: '.5rem'}}>/</h1>
+                <div key={i} className="flex-row baseline">
+                  <Link className="italic-hover" to={`${topic}/${resource}`} >
+                    <h1 className="page-item italic-hover" style={{fontSize: '1.6rem'}}>{resource}</h1>
+                  </Link>
+                </div>
               </div>
             )
           })
@@ -95,7 +98,7 @@ const Course = ({ theme, coursename, lecturers, semester }) => {
 
   const renderAll = () => {
     if (!state.fetched) {
-      return ( <div className="primary">Loading...</div> )
+      return ( <div className="primary" style={{maringTop: '3rem'}}>Loading...</div> )
     } else {
       if (state.data !== null) {
         return (
@@ -104,7 +107,7 @@ const Course = ({ theme, coursename, lecturers, semester }) => {
           })
         )
       } else {
-        return <div className="primary">Nothing here yet</div>
+        return <div className="primary" style={{marginTop: '3rem'}}>Nothing here yet</div>
       }
     }
   }

@@ -45,13 +45,15 @@ const ProjectTile = ({ key, theme, name, updated_at, created_at, languages_url, 
   return (
     <div className="ProjectTile flex-column" key={key}>
       <div className="container flex-row">
-        <a className="italic-hover" href={url} target="noopener" style={{maxWidth: width < 700 ? '100%' : '85%'}}>
-          <h1 className="sub-section-title italic-hover">{name}</h1>
-        </a>
+          <a className="italic-hover" 
+             href={url} target="noopener" 
+             style={{maxWidth: width < 700 ? '100%' : '85%'}}>
+            <h1 className="page-item italic-hover">{name}</h1>
+          </a>
 
         {width > 700 &&
           <div className="metadata flex-row">
-            <div className="metadata-item"><h2 className="sub-section-text">/ {created_at}</h2></div>
+            <div className="metadata-item"><h2 className="page-item-subtext">/ {created_at}</h2></div>
           </div>
         }
       </div>

@@ -15,7 +15,7 @@ const ProjectPage = ({ projects }) => {
           {topics.map(topic => {
             return (
               <div id={topic} className="sub-section">
-              <h2 className="sub-section-divider">{topic}</h2>
+              <h2 className="divider">{topic}</h2>
               {projects && 
                 projects.map((repo, i) => {
                   if (repo.topics.includes(topic)) { 
