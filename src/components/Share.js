@@ -45,9 +45,17 @@ const Share = () => {
         return (
           state.data.map((share, i) => {
             return (
-              <a key={i} className="italic-hover" href={`https://jonas-mika.herokuapp.com/api/share/${share}`} download={share}>
-                <p className="normal primary bold" style={{margin: '.2rem 0'}}>/ {share}</p>
-              </a>
+              <div className="flex-row">
+                <h1 className="page-item large primary" style={{paddingRight: '.5rem'}}>/</h1>
+                <div key={i} className="flex-row baseline">
+                  <a key={i} 
+                     className="italic-hover" 
+                     href={`https://jonas-mika.herokuapp.com/api/share/${share}`} 
+                     download={share}>
+                    <h1 className="page-item large italic-hover">{share}</h1>
+                  </a>
+                </div>
+              </div>
             )
           })
         )
@@ -67,7 +75,7 @@ const Share = () => {
           subtitle={""}
         />
 
-        <div className="container flex-column">
+        <div className="container flex-column" style={{marginTop: '3rem'}}>
           { render() }
         </div>
       </div>

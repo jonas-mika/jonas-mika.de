@@ -27,7 +27,8 @@ const FILETYPES = {
 
 const Resource = ({ course, theme }) => {
   const { topic, resource } = useParams();
-  const { windowWidth } = useWindowWidth();
+  const { width } = useWindowWidth();
+  console.log(width)
   const [state, setState] = useState({
     "fetched": false,
     "data": null,
@@ -54,7 +55,7 @@ const Resource = ({ course, theme }) => {
     if (state.fetched) {
       if (state.filetype === 'markdown' || state.filetype === 'txt') {
         return (
-          <div style={{width: windowWidth > '1000' ? '80%' : '100%'}}>
+          <div style={{width: width > 1000 ? '80%' : '100%'}}>
             <div className="markdown-body" style={{marginTop: '3rem'}}>
               <ReactMarkdown 
                  children={state.data} 
@@ -67,7 +68,7 @@ const Resource = ({ course, theme }) => {
         )
       } else {   
           return (
-          <div style={{width: windowWidth > '1000' ? '80%' : '100%'}}>
+          <div style={{width: width > 1000 ? '80%' : '100%'}}>
             <CopyBlock 
               text={state.data}
               language={state.filetype}
