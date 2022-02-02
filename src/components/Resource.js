@@ -25,35 +25,28 @@ const FILETYPES = {
 }
 
 const Resource = ({ course, theme }) => {
-  const { resource } = useParams();
+  const { topic, resource } = useParams();
   const [state, setState] = useState({
     "fetched": false,
     "data": null,
-    "filetype": null
+    "filetype": null,
   });
 
   useEffect(() => {
     // fetching resource data
-    const data = fetch(`https://jonas-mika.herokuapp.com/api/assets/courses/${course}/${resource}`)
-                  .then(res => res.text())
-                  //.then(data => data.resolve())
-                  .then(data => {return data});
-
-    // getting filetype
     const suffix = resource.split('.')[1];
     const filetype = FILETYPES[suffix];
 
-    const timer =  setTimeout(async () => { 
-      setState({
-        "fetched": true,
-        "data": await data,
-        "filetype": filetype
-      });
-    }, 0);
-
-    return () => clearTimeout(timer);
-  }, [course, resource]);
-
+    fetch(`https://jonas-mika.herokuapp.com/api/assets/courses/${course}/${topic}/${resource}`)
+            .then(res => res.text())
+            .then(res => {
+              setState({
+                "fetched": true,
+                "filetype": filetype,
+                "data": res
+              })
+            })
+  }, [course, topic, resource]);
 
   const render = () => {
     if (state.fetched) {

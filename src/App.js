@@ -21,17 +21,16 @@ function App() {
   const [projects, setProjects] = useState(null);
   const [fetched, setFetched] = useState(false);
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
+
   const fetchProjects = async () => {
     fetch("https://api.github.com/users/jonas-mika/repos")
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setProjects(data);
       });
-  }
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
   }
 
   const courses = require('./courses.json');
@@ -73,7 +72,7 @@ function App() {
               return (
                 <Route key={i} path={`/${course.name}/*`} element={
                   <Course 
-                    name={course.name} 
+                    coursename={course.name} 
                     lecturers={course.lecturer}
                     semester={course.semester}
                   />}

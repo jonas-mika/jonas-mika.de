@@ -6,67 +6,105 @@ import Resource from './Resource';
 import Subpage from './Subpage';
 import { API } from '../configs';
 
-const Course = ({ theme, name, lecturers, semester }) => {
+const Course = ({ theme, coursename, lecturers, semester }) => {
   const location = useLocation();
   const [isOverview, setIsOverview] = useState(true);
   const [state, setState] = useState({
     "fetched": false,
-    "data": null,
+    "data": {},
     "error": null
   });
 
   useEffect(() => {
-    setIsOverview(location.pathname === `/${name}` ? true : false);
+    setIsOverview(location.pathname === `/${coursename}` ? true : false);
   }, [location]);
 
   useEffect(() => {
-    fetch(`${API}/api/courses/${name}`)
+    setState({
+      "fetched": false,
+      "data": {},
+      "error": null
+    })
+  }, [location])
+
+  useEffect(() => {
+    fetch(`${API}/api/courses/${coursename}/topics`)
+      .then(res => res.json())
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          setState({
-            "fetched": true,
-            "data": null,
-            "error": true
-          })
-          return null;
-        }
+        return res;
       })
-      .then(res => {
-        if (res) {
-          setState({
-            "fetched": true,
-            "data": res,
-            "error": false
-          })
-        }
+      .catch(err => {
+        setState({
+          "fetched": true,
+          "data": null, 
+          "error": true
+        })
+        return null
+      })
+      .then((topics) => {
+        if (topics !== null) {
+          if (topics.length > 0) {
+            let data = {}
+            topics.forEach(topic => {
+              const url = `${API}/api/courses/${coursename}/${topic}`
+              let tmp = new Object();
+              fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                  tmp[topic] = res
+                  data = {...data, ...tmp}
+                  return data
+                })
+                .then(data => {
+                  setState({
+                    ...state,
+                    "fetched": true,
+                    "data": data
+                  })
+                })
+              })
+            } else {
+              setState({
+                "fetched": true,
+                "data": null, 
+                "error": true
+              })
+            }
+          } 
       })
   }, [location]);
 
-  const render = () => {
-    console.log('fetched: ', state);
-    if (!state.fetched) {
-      return (
-        <div className="primary">Loading...</div>
-      )
-    } else {
-      if (state.data !== null) {
-        return (
-          state.data.map((resource, i) => {
+  const renderTopic = (topic) => {
+    return (
+      <div style={{marginBottom: '5rem'}}>
+        <h2 className="sub-section-divider" style={{marginTop: '0'}}>{topic}</h2>
+        {
+          state.data[topic].map((resource, i) => {
             return (
               <div key={i} className="flex-row baseline">
-                <Link className="italic-hover" to={resource}>
-                  <p className="normal primary bold" style={{margin: '0.2rem 0'}}>/ {resource}</p>
+                <Link className="italic-hover" to={`${topic}/${resource}`} >
+                  <h1 className="sub-section-title italic hover" style={{fontSize: '1.5rem', margin: '0.2rem 0'}}>/ {resource}</h1>
                 </Link>
               </div>
             )
           })
+        }
+      </div>
+    )
+  }
+
+  const renderAll = () => {
+    if (!state.fetched) {
+      return ( <div className="primary">Loading...</div> )
+    } else {
+      if (state.data !== null) {
+        return (
+          Object.keys(state.data).map((topic) => {
+            return renderTopic(topic) 
+          })
         )
       } else {
-        return (
-          <div className="primary">Nothing here yet</div>
-        )
+        return <div className="primary">Nothing here yet</div>
       }
     }
   }
@@ -77,17 +115,20 @@ const Course = ({ theme, name, lecturers, semester }) => {
         {isOverview &&
           <div>
             <Subpage
-                title={name}
+                title={coursename}
                 subtitle={"/ " + semester + " / " + lecturers.join(" / ")}
             />
             <div className="resources flex-column">
-              { render() }
-            </div>
+              { renderAll() }
+              </div>
           </div>
         }
 
         <Routes>
-            <Route path=':resource' element={<Resource course={name} theme={theme}/>}/>
+            <Route 
+              path={`:topic/:resource`}
+              element={<Resource course={coursename} theme={theme}/>}
+            />
         </Routes>
       </div>
     </div>
@@ -95,3 +136,11 @@ const Course = ({ theme, name, lecturers, semester }) => {
 }
 
 export default Course;
+
+/*
+              <div key={i} className="flex-row baseline">
+                <Link className="italic-hover" to={resource}>
+                  <p className="normal primary bold" style={{margin: '0.2rem 0'}}>/ {resource}</p>
+                </Link>
+              </div>
+              */
