@@ -79,7 +79,7 @@ const Course = ({ theme, coursename, lecturers, semester }) => {
       <div>
         <h2 className="divider">{topic}</h2>
         {
-          state.data[topic].map((resource, i) => {
+          state.data[topic].sort().reverse().map((resource, i) => {
             return (
               <div className="flex-row">
                 <h1 className="page-item large primary" style={{paddingRight: '.5rem'}}>/</h1>
@@ -98,11 +98,11 @@ const Course = ({ theme, coursename, lecturers, semester }) => {
 
   const renderAll = () => {
     if (!state.fetched) {
-      return ( <div className="primary" style={{maringTop: '3rem'}}>Loading...</div> )
+      return ( <div className="primary" style={{marginTop: '3rem'}}>Loading...</div> )
     } else {
       if (state.data !== null) {
         return (
-          Object.keys(state.data).map((topic) => {
+          Object.keys(state.data).sort().map((topic) => {
             return renderTopic(topic) 
           })
         )
