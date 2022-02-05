@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
 import 'github-markdown-css';
-import { useWindowWidth } from '@react-hook/window-size'
+import { useWindowWidth } from '@react-hook/window-size';
 
 import Subpage from './Subpage';
 
@@ -27,8 +27,7 @@ const FILETYPES = {
 
 const Resource = ({ course, theme }) => {
   const { topic, resource } = useParams();
-  const { width } = useWindowWidth();
-  console.log(width)
+  const width = useWindowWidth();
   const [state, setState] = useState({
     "fetched": false,
     "data": null,
@@ -55,7 +54,7 @@ const Resource = ({ course, theme }) => {
     if (state.fetched) {
       if (state.filetype === 'markdown' || state.filetype === 'txt') {
         return (
-          <div style={{width: width > 1000 ? '80%' : '100%'}}>
+          <div style={{maxWidth: '960px', width: '100%'}}>
             <div className="markdown-body" style={{marginTop: '3rem'}}>
               <ReactMarkdown 
                  children={state.data} 
@@ -68,11 +67,11 @@ const Resource = ({ course, theme }) => {
         )
       } else {   
           return (
-          <div style={{width: width > 1000 ? '80%' : '100%'}}>
+            <div className="code-block" style={{maxWidth: '960px', width: '100%'}}>
             <CopyBlock 
               text={state.data}
               language={state.filetype}
-              showLineNumbers={false}
+              showLineNumbers={width > 600 ? true : false}
               theme={nord}
               wrapLines
             />

@@ -257,6 +257,15 @@
       color: var(--text-primary);
     }
   }
+
+  .code-block {
+    div {
+      padding: 1rem;
+      font-family: monospace, monospace;
+      font-size: .9rem;
+      letter-spacing: 1px;
+    }
+  }
 }
 
 .Contact {
