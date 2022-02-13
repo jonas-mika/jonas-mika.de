@@ -20,7 +20,7 @@ const Contact = () => {
           <h1 className="normal primary bold" style={{marginBottom: '1rem'}}>hej!</h1>
           <p className="normal primary">
               my name is mika. i am a {getAge()}-year old student from germany that is currently
-              studying a data science at the it university of copenhagen, where i am also a teaching 
+              studying data science at the it university of copenhagen, where i am also a teaching 
               assistant in several courses. among those are 
               <Link 
                 className="secondary italic" 
@@ -42,7 +42,7 @@ const Contact = () => {
 
               <br/><br/>
 
-              besides my studies, i am working as student data scientist at
+              besides my studies, i am working as a student data scientist at
               <a className="secondary italic" 
                  style={{margin: '0 0.2rem'}}
                  target='noopener'
