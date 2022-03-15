@@ -7,9 +7,9 @@ function Points( { theme, animate } ) {
   const imgTex = useLoader(THREE.TextureLoader, circleImg);
   const bufferRef = useRef();
 
-  let t = 5;
-  let f = 0.005;
-  let a = .8;
+  let t = 100;
+  let f = 0.0025;
+  let a = 1.5;
 
   const graph = useCallback((x, y) => {
     return Math.sin(f * (x ** 2 + y ** 2 + t)) * a;
